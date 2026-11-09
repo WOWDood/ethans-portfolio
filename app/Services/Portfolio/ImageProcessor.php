@@ -18,14 +18,15 @@ class ImageProcessor
     public function prepare(array $content): array
     {
         $portrait = $content['profile']['portrait'];
-        $content['profile']['portrait']['asset'] = $this->process($portrait, 3 / 4, [320, 480, 640, 960, 1280, 1600], 'portrait');
+        $portraitRatio = ($portrait['landscape'] ?? false) ? 16 / 9 : 3 / 4;
+        $content['profile']['portrait']['asset'] = $this->process($portrait, $portraitRatio, [320, 480, 640, 960, 1280, 1600], 'portrait');
 
         foreach ($content['projects'] as $index => $project) {
             $content['projects'][$index]['image']['asset'] = $this->process($project['image'], 3 / 2, [480, 800, 1200], 'project');
             $content['projects'][$index]['html'] = $this->prepareMarkdownImages($project['html']);
         }
 
-        foreach (['certifications', 'leadership'] as $section) {
+        foreach (['certifications', 'leadership', 'education'] as $section) {
             foreach ($content[$section]['entries'] as $index => $entry) {
                 $badge = $entry['badge'] ?? null;
 

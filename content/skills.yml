@@ -1,16 +1,16 @@
 clusters:
   - title: Hardware & Electronics
-    items: [PC component selection and assembly, Hardware compatibility, Electronics DIY, Internal smartphone repairs]
-  - title: Programming
-    items: [Python, C, C++, C#, Assembly, Ruby]
+    items: [PC component selection and assembly, Hardware compatibility, Electronics DIY, Circuit configuration, Electronics soldering, Internet of Things (IoT), Internal smartphone repairs]
+  - title: Programming & Tools
+    items: [Python, C, C++, C#, Assembly, Ruby, PHP, Git, Agentic development]
   - title: Web Development
-    items: [HTML, CSS, JavaScript, React, WordPress]
+    items: [HTML, CSS, JavaScript, React, Laravel Suite, Content management software]
   - title: IT Support & Systems
-    items: [Hardware and software troubleshooting, Network troubleshooting, Windows and Linux installation, Driver configuration, System updates]
+    items: [Hardware and software troubleshooting, Network troubleshooting, Printer setup and troubleshooting, Windows and Linux installation, Driver configuration, System updates, Microsoft Azure, Virtual machines]
   - title: Data & Productivity
     items: [Power BI, Microsoft Word, Microsoft Excel, Microsoft PowerPoint, Inventory management, POS systems]
   - title: Design & Communication
-    items: [Static and motion graphics, Technical writing, Documentation, Technical presentations]
+    items: [Graphic design, Motion graphics, Video editing, Technical writing, Documentation, Technical presentations]
 source:
   technical_skills:
     - Computer & Electronics DIY

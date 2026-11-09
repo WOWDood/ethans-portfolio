@@ -30,6 +30,7 @@ portrait:
   source: ethan-portrait.png # Relative to content/assets/; builds export processed copies only.
   alt: Portrait of Ethan Oneil Azlan
   focal_point: [0.5, 0.06]
+  landscape: true
 languages:
   - name: English
     speaking: Bilingual

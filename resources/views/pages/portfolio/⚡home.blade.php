@@ -30,6 +30,30 @@ new #[Layout('layouts::portfolio')] class extends Component
 <main id="main" tabindex="-1">
     <div class="homepage-screen">
     <section aria-labelledby="intro-heading" class="hero">
+        <div class="hero-atmosphere" aria-hidden="true">
+            <div class="hero-light"></div>
+            <div class="hero-traces">
+                <svg viewBox="0 0 360 256" focusable="false">
+                    <path d="M0 72h62l46 46h57l32 32h75 M0 118h43l42 42h55l32 32h148 M0 166h27l33 33h53l23 23h78 M0 229h71l27 27 M108 118V80l32-32h64 M197 150v-38l30-30h49"/>
+                    <circle cx="204" cy="48" r="3"/>
+                    <circle cx="276" cy="82" r="3"/>
+                    <circle cx="272" cy="150" r="3"/>
+                    <circle cx="320" cy="192" r="3"/>
+                    <circle cx="214" cy="222" r="3"/>
+                </svg>
+            </div>
+        </div>
+        <svg class="hero-bubbles" aria-hidden="true" focusable="false">
+            <path class="bubble-lasso"/>
+            <g class="bubble-template">
+                <g class="bubble-flight">
+                    <circle class="bubble-ring" r="39"/>
+                    <text class="bubble-text" text-anchor="middle" y="5"></text>
+                    <path class="bubble-rays" d="M0-28v-10 M20-20l7-7 M28 0h10 M20 20l7 7 M0 28v10 M-20 20l-7 7 M-28 0h-10 M-20-20l-7-7"/>
+                </g>
+            </g>
+            <path class="bubble-cursor" d="M-9 0h6 M3 0h6 M0-9v6 M0 3v6"/>
+        </svg>
         <div class="hero-inner page-container">
             <div class="hero-copy">
                 <p class="hero-name">{{ $profile['name'] }}</p>
@@ -46,8 +70,9 @@ new #[Layout('layouts::portfolio')] class extends Component
                 <a href="#work" class="hero-scroll">Explore my work <span aria-hidden="true">↓</span></a>
             </div>
             @if ($portrait = $profile['portrait']['asset'])
-                <figure class="hero-portrait">
-                    <img src="{{ $portrait['src'] }}" srcset="{{ $portrait['srcset'] }}" sizes="(min-width: 768px) 110vw, 100vw" width="{{ $portrait['width'] }}" height="{{ $portrait['height'] }}" alt="{{ $profile['portrait']['alt'] }}" fetchpriority="high" decoding="async">
+                @php($landscapePortrait = $profile['portrait']['landscape'] ?? false)
+                <figure @class(['hero-portrait', 'hero-portrait-wide' => $landscapePortrait])>
+                    <img src="{{ $portrait['src'] }}" srcset="{{ $portrait['srcset'] }}" sizes="{{ $landscapePortrait ? '(min-width: 768px) min(92vw, 164svh), max(100vw, 84svh)' : '(min-width: 768px) 110vw, 100vw' }}" width="{{ $portrait['width'] }}" height="{{ $portrait['height'] }}" alt="{{ $profile['portrait']['alt'] }}" fetchpriority="high" decoding="async">
                 </figure>
             @endif
         </div>

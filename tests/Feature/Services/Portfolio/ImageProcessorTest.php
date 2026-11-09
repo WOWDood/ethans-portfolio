@@ -14,6 +14,7 @@ test('produces responsive transparent WebP crops without upscaling or copying or
     $content = app(ContentRepository::class)->load();
     $content['profile']['portrait']['source'] = 'test-image.png';
     $content['profile']['portrait']['focal_point'] = [0.5, 0.5];
+    unset($content['profile']['portrait']['landscape']);
 
     $prepared = app(ImageProcessor::class)->prepare($content);
 
@@ -26,6 +27,21 @@ test('produces responsive transparent WebP crops without upscaling or copying or
     expect(glob(public_path('media/*.png')))->toBe([]);
 });
 
+test('preserves the wide composition of a landscape hero portrait', function () {
+    $directory = portfolioContentFixture();
+    createPortfolioImage($directory, 960, 540);
+    File::ensureDirectoryExists(dirname($directory).'/public');
+    app()->usePublicPath(dirname($directory).'/public');
+    $content = app(ContentRepository::class)->load();
+    $content['profile']['portrait']['source'] = 'test-image.png';
+    $content['profile']['portrait']['landscape'] = true;
+
+    $asset = app(ImageProcessor::class)->prepare($content)['profile']['portrait']['asset'];
+
+    expect([$asset['width'], $asset['height']])->toBe([960, 540]);
+    expect($asset['srcset'])->toContain('320w', '960w')->not->toContain('1280w');
+});
+
 test('corrects JPEG orientation before removing EXIF and location metadata', function (int $orientation, array $expectedColour) {
     $directory = portfolioContentFixture();
     $source = createPortfolioImage($directory, 120, 80, jpeg: true, orientation: $orientation);
@@ -34,6 +50,7 @@ test('corrects JPEG orientation before removing EXIF and location metadata', fun
     $content = app(ContentRepository::class)->load();
     $content['profile']['portrait']['source'] = 'test-image.jpg';
     $content['profile']['portrait']['focal_point'] = [0.5, 0.5];
+    unset($content['profile']['portrait']['landscape']);
     expect(exif_read_data($source)['Orientation'])->toBe($orientation);
 
     $asset = app(ImageProcessor::class)->prepare($content)['profile']['portrait']['asset'];

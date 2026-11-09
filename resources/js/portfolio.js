@@ -1,4 +1,5 @@
 import { stepSpring } from './portfolio-motion.js';
+import { initializeHeroBubbles } from './portfolio-bubbles.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const activeSprings = new Set();
@@ -80,6 +81,55 @@ if (hero && heroHeader) {
         heroHeader.toggleAttribute('data-over-hero', entry.isIntersecting);
     }, { rootMargin: `-${heroHeader.offsetHeight}px 0px 0px` });
     headerOverlap.observe(hero);
+}
+if (hero) initializeHeroBubbles(hero, reducedMotion);
+
+const atmosphere = hero?.querySelector('.hero-atmosphere');
+if (atmosphere) {
+    const light = atmosphere.querySelector('.hero-light');
+    const traces = atmosphere.querySelector('.hero-traces');
+    const quietBackground = window.matchMedia('(prefers-reduced-motion: reduce), (prefers-reduced-transparency: reduce), (prefers-contrast: more)');
+    const lightMotion = spring([0, 0, 0], ([x, y, intensity]) => {
+        light.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        light.style.opacity = intensity;
+    });
+    const traceMotion = spring([0], ([progress]) => {
+        traces.style.transform = `translate3d(0, ${-progress * 90}px, 0)`;
+        traces.style.opacity = 1 - progress * 0.85;
+    });
+    let lightX = 0;
+    let lightY = 0;
+    let scrollProgress = 0;
+
+    hero.addEventListener('pointermove', (event) => {
+        if (quietBackground.matches || event.pointerType === 'touch') return;
+        const { left, top } = hero.getBoundingClientRect();
+        lightX = event.clientX - left;
+        lightY = event.clientY - top;
+        lightMotion.to([lightX, lightY, 1]);
+    }, { passive: true });
+    const fadeLight = () => lightMotion.to([lightX, lightY, 0], quietBackground.matches);
+    hero.addEventListener('pointerleave', fadeLight);
+    hero.addEventListener('pointercancel', fadeLight);
+
+    function updateTraceDepth(immediate = false) {
+        if (quietBackground.matches) return;
+        const { top, height } = hero.getBoundingClientRect();
+        if (!height) return;
+        const progress = Math.min(1, Math.max(0, -top / height));
+        if (progress === scrollProgress && !immediate) return;
+        scrollProgress = progress;
+        traceMotion.to([progress], immediate);
+    }
+
+    window.addEventListener('scroll', () => updateTraceDepth(), { passive: true });
+    window.addEventListener('resize', () => updateTraceDepth(true));
+    quietBackground.addEventListener('change', () => {
+        fadeLight();
+        traceMotion.finish();
+        updateTraceDepth(true);
+    });
+    updateTraceDepth(true);
 }
 
 const mobileMenu = document.querySelector('[data-mobile-menu]');

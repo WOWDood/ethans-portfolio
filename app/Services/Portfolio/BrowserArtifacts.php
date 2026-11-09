@@ -19,7 +19,7 @@ class BrowserArtifacts
         $this->files->ensureDirectoryExists($work);
 
         try {
-            foreach (['certifications', 'leadership'] as $section) {
+            foreach (['certifications', 'leadership', 'education'] as $section) {
                 foreach ($content[$section]['entries'] as $index => $entry) {
                     if (is_string($entry['badge']['asset']['src'] ?? null)) {
                         $path = public_path(ltrim($entry['badge']['asset']['src'], '/'));

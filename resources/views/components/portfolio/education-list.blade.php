@@ -6,8 +6,13 @@
         <article class="timeline-entry" wire:key="education-{{ $entry['id'] }}">
             <p class="entry-date">{{ $dates->range($entry['start'], $entry['end'], expected: $entry['expected']) }}</p>
             <div class="timeline-copy">
-                <h3>{{ $entry['qualification'] }}</h3>
-                <p class="entry-organisation">{{ $entry['institution'] }}</p>
+                <div class="education-institution">
+                    <x-portfolio.badge :badge="$entry['badge'] ?? null" class="education-badge" :data-education="$entry['id']" sizes="48px" />
+                    <div>
+                        <h3>{{ $entry['qualification'] }}</h3>
+                        <p class="entry-organisation">{{ $entry['institution'] }}</p>
+                    </div>
+                </div>
                 @if ($entry['highlights'])
                     <ul class="education-highlights">
                         @foreach ($entry['highlights'] as $highlight)

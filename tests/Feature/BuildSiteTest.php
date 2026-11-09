@@ -17,7 +17,7 @@ function preparePortfolioBuild(): string
     $profile = Yaml::parseFile($content.'/profile.yml');
     $profile['portrait']['source'] = null;
     File::put($content.'/profile.yml', Yaml::dump($profile, 8, 2));
-    foreach (['certifications', 'leadership'] as $section) {
+    foreach (['certifications', 'leadership', 'education'] as $section) {
         $file = "{$content}/{$section}.yml";
         $data = Yaml::parseFile($file);
         foreach (array_keys($data['entries']) as $index) {
@@ -142,6 +142,7 @@ test('exports only processed local badge images', function (string $section, str
 })->with([
     'credential' => ['certifications', '.credential-badge img', 'Cisco support credential badge'],
     'leadership' => ['leadership', '#leadership .role-badge img', 'Student section logo'],
+    'education' => ['education', '#education .education-badge img', 'University crest'],
 ]);
 
 test('writes crawl settings and a sitemap only for configured public pages', function () {
@@ -268,6 +269,7 @@ test('exports responsive portrait files and the self-hosted font without source 
     createPortfolioImage($content, 120, 160);
     $profile = Yaml::parseFile($content.'/profile.yml');
     $profile['portrait']['source'] = 'test-image.png';
+    unset($profile['portrait']['landscape']);
     File::put($content.'/profile.yml', Yaml::dump($profile, 8, 2));
     File::ensureDirectoryExists($fixture.'/public/fonts');
     File::copy(base_path('public/fonts/dm-sans-latin-variable.woff2'), $fixture.'/public/fonts/dm-sans-latin-variable.woff2');

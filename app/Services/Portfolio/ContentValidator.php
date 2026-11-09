@@ -196,8 +196,9 @@ class ContentValidator
                 'contact.form_id' => ['present', 'nullable', 'string', 'regex:/^[a-zA-Z0-9]+$/'],
                 'links' => ['required', 'array', 'list', 'min:1'], 'links.*' => ['array:label,url'],
                 'links.*.label' => $text, 'links.*.url' => ['required', 'url:https'],
-                'portrait' => ['required', 'array:source,alt,focal_point'],
+                'portrait' => ['required', 'array:source,alt,focal_point,landscape'],
                 'portrait.source' => ['present', 'nullable', 'string'], 'portrait.alt' => $text,
+                'portrait.landscape' => ['sometimes', 'boolean:strict'],
                 'portrait.focal_point' => ['required', 'array', 'list', 'size:2'],
                 'portrait.focal_point.*' => ['required', 'numeric', 'between:0,1'],
                 'languages' => ['required', 'array', 'list', 'min:1'],
@@ -211,8 +212,8 @@ class ContentValidator
                 'entries.*.clients' => ['sometimes', 'array', 'list'], 'entries.*.clients.*' => $text,
                 'entries.*.event_highlight' => ['sometimes', ...$text],
             ],
-            'education' => $source + $entries + $period + [
-                'entries.*' => ['array:id,institution,qualification,start,end,expected,highlights,source_bullets,notes,source'],
+            'education' => $source + $entries + $period + $badge + [
+                'entries.*' => ['array:id,institution,qualification,start,end,expected,highlights,badge,source_bullets,notes,source'],
                 'entries.*.institution' => $text, 'entries.*.qualification' => $text,
                 'entries.*.expected' => ['required', 'boolean:strict'],
                 'entries.*.highlights' => ['present', 'array', 'list'], 'entries.*.highlights.*' => $text,

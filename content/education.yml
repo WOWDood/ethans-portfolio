@@ -2,6 +2,9 @@ entries:
   - id: computer-engineering-degree
     institution: Universiti Malaysia Sabah
     qualification: B.Eng. Electronic Engineering (Computer) with Honours
+    badge:
+      source: ums-education-logo.png
+      alt: Universiti Malaysia Sabah crest
     start: '2025-09-27'
     end: '2029-10'
     expected: true
@@ -14,6 +17,9 @@ entries:
   - id: foundation-science
     institution: Universiti Malaysia Sabah
     qualification: Foundation in Science
+    badge:
+      source: ums-foundation-logo.png
+      alt: UMS Centre for Science and Technology Preparatory Studies crest
     start: '2024-07'
     end: '2025-06'
     expected: false
@@ -29,6 +35,9 @@ entries:
   - id: spm
     institution: SMK Kota Marudu
     qualification: Sijil Pelajaran Malaysia (SPM)
+    badge:
+      source: smk-kota-marudu-logo.png
+      alt: SMK Kota Marudu crest
     start: null
     end: '2024'
     expected: false
