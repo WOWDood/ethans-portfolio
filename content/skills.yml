@@ -1,0 +1,28 @@
+clusters:
+  - title: Hardware & Electronics
+    items: [PC component selection and assembly, Hardware compatibility, Electronics DIY, Internal smartphone repairs]
+  - title: Programming
+    items: [Python, C, C++, C#, Assembly, Ruby]
+  - title: Web Development
+    items: [HTML, CSS, JavaScript, React, WordPress]
+  - title: IT Support & Systems
+    items: [Hardware and software troubleshooting, Network troubleshooting, Windows and Linux installation, Driver configuration, System updates]
+  - title: Data & Productivity
+    items: [Power BI, Microsoft Word, Microsoft Excel, Microsoft PowerPoint, Inventory management, POS systems]
+  - title: Design & Communication
+    items: [Static and motion graphics, Technical writing, Documentation, Technical presentations]
+source:
+  technical_skills:
+    - Computer & Electronics DIY
+    - Hardware Familiarity
+    - Internal Smartphone Repairs
+    - Inventory Management
+    - 'Microsoft Office Suite: MS Word, MS Excel, MS Powerpoint'
+    - Static and Motion Graphics Design
+    - MS Power BI
+    - OS Proficiency
+    - P.O.S System
+    - Python/HTML5/CSS3/JavaScript (w/React framework)/ASM/C/C#/C++/Ruby
+  notes:
+    - The grouped list also reflects concrete tools and activities documented in the experience and portfolio sections.
+    - No proficiency levels or equal expertise across programming languages are implied.

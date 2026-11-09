@@ -1,0 +1,122 @@
+entries:
+  - id: starza-it-support
+    employer: Marz Computer
+    role: On-Call IT Support
+    start: '2025-08'
+    end: null
+    ongoing: true
+    engagement: Occasional, part-time
+    bullets:
+      - Resolve hardware, software, and network issues through first-line and on-site support across multiple locations.
+      - Configure systems and apply security patches and updates.
+      - Document troubleshooting and escalate issues when needed.
+    source_bullets:
+      - Provide first-line technical support to end-users, troubleshooting and resolving hardware, software, and network issues in a timely and efficient manner.
+      - Maintain and configure hardware, software, and networks, ensuring all systems are current with security patches and updates.
+      - Diagnose and resolve complex problems, escalating when needed, and document the process from start to finish.
+      - On-site IT contact for multiple locations, providing immediate, hands-on support for urgent hardware, software, and network issues.
+    notes:
+      - Current activity is occasional, as clarified by Ethan; no full-time availability or support-volume metric is claimed.
+  - id: hardware-assembly-repair
+    employer: Independent / informal
+    role: Computer & Electronics Hardware Assembly and Repair
+    start: '2019'
+    end: null
+    ongoing: true
+    engagement: Informal
+    bullets:
+      - Select components and assemble custom PCs for personal use and friends, balancing budget, performance, and compatibility.
+      - Install Windows and Linux, configure drivers, and troubleshoot systems.
+      - Advise on hardware upgrades and maintenance.
+    source_bullets:
+      - Successfully designed, sourced components for, and assembled a number of custom PCs for personal use and for friends/peers.
+      - Responsibilities included component selection based on budget and performance needs, hardware assembly, operating system installation (e.g., Windows, Linux), driver configuration, and troubleshooting.
+      - Developed expertise in CPU, GPU, RAM, storage solutions, and motherboard compatibility.
+      - Provided consultation support and advice on hardware upgrades and maintenance.
+      - Cultivated extensive knowledge of computer components and industry trends through daily engagement with tech literature, videos, and podcasts.
+    notes:
+      - The résumé does not name an employer for this informal work; the employer label describes that context.
+      - The number of PCs is not specified. Reading habits and broad expertise claims are consolidated into concrete work.
+  - id: event-work
+    employer: Multiple event organisers
+    role: Event crew / promotional support
+    start: '2024-05'
+    end: null
+    ongoing: true
+    engagement: Occasional, part-time
+    bullets:
+      - Support event setup, product demonstrations, promotional activities, and teardown.
+      - Arrange displays and branding, replenish materials, and check setup safety.
+      - Run game stations, explain rules, and handle enquiries and prize distribution.
+    event_highlight: Co-emceed the Harrison’s Malaysia annual dinner around June 2026.
+    clients:
+      - Nissan Malaysia
+      - Toyota Malaysia
+      - Samsung Electronics (M) Sdn. Bhd.
+      - Vivo Mobile Communication Co., Ltd.
+      - Honor Technology (Malaysia) Sdn Bhd.
+      - Aon plc.
+      - Caring Pharmacy Group Bhd.
+      - McDonald's Malaysia
+      - KFC Malaysia
+    source_bullets:
+      - Collaborated with high-profile industry partners including Nissan Malaysia, Toyota Malaysia, Samsung Electronics (M) Sdn. Bhd., Vivo Mobile Communication Co., Ltd., Honor Technology (Malaysia) Sdn Bhd., Aon plc., and Caring Pharmacy Group Bhd. to support event execution as well as promotional and marketing initiatives.
+      - Successfully led the execution of assigned event roles.
+      - Assist with demonstrations and ensure the display products are well presented.
+      - Handle customer interactions, inquiries, and giveaways.
+      - Assist with stock replenishment for promotional materials or merchandise.
+      - Supported with stall assembly, heavy lifting and layout arrangement before the event starts as well as disassembly.
+      - Ensure decorations and branding materials are properly placed.
+      - Conduct safety checks on the setup to prevent any hazards.
+      - Oversee game stations and facilitate customer participation.
+      - Explain game rules and distribute prizes to winners.
+    notes:
+      - The original role is Part-Timer. The proposed title describes the documented work.
+      - Client names are approved for public use; describe them as events supported, not direct employers or endorsements.
+      - The original leadership claim needs a specific example before it can be strengthened.
+  - id: resume4u
+    employer: Resume4U
+    role: Customer Service / Marketing
+    start: '2024-04'
+    end: '2024-09'
+    ongoing: false
+    engagement: null
+    bullets:
+      - Generate sales leads and identify customer needs.
+      - Handle enquiries and complaints, explain available options, and follow up on resolution.
+      - Maintain customer interaction records and account documentation.
+    source_bullets:
+      - Generate sales leads.
+      - Identify and assess customers’ needs to achieve satisfaction.
+      - Build sustainable relationships and trust with customer accounts through open and interactive communication.
+      - Meet personal/customer service team sales targets and call handling quotas.
+      - Provide accurate, valid and complete information by using the right methods/tools.
+      - Take the extra mile to engage customers.
+      - Ensuring rapport and trust is built among customers.
+      - Handle customer complaints, provide appropriate solutions and alternatives within the time limits; follow up to ensure resolution.
+      - Keep records of customer interactions, process customer accounts and file documents.
+    notes:
+      - The sales-target bullet states an expectation; no target attainment or sales result is claimed.
+      - Repeated rapport, trust, and customer-engagement bullets are consolidated.
+  - id: bake-with-us
+    employer: Bake With Us
+    role: Store Assistant
+    start: '2017-06'
+    end: '2023-12'
+    ongoing: false
+    engagement: Family business
+    bullets:
+      - Help customers with product information, purchases, and returns.
+      - Process transactions and receive, label, and replenish stock.
+      - Support opening and closing duties and maintain store cleanliness and safety.
+    source_bullets:
+      - Communicated effectively with customers and provided product information.
+      - Assist customers with purchases and returns.
+      - Inventory management and stocking shelves.
+      - Proactively maintained store cleanliness and organization.
+      - Operate the cash register and manage transactions.
+      - Unpack and label incoming shipments.
+      - Maintained store safety standards at all times.
+      - Open/close store at the correct operational hours.
+    notes:
+      - The family-business context is retained; working hours and employment intensity are not specified.

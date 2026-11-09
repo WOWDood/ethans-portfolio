@@ -1,0 +1,44 @@
+entries:
+  - id: computer-engineering-degree
+    institution: Universiti Malaysia Sabah
+    qualification: B.Eng. Electronic Engineering (Computer) with Honours
+    start: '2025-09-27'
+    end: '2029-10'
+    expected: true
+    highlights: []
+    source_bullets:
+      - Obtained admission into course (Sep 27 Intake).
+    notes:
+      - Ethan confirmed that Sep 27 means 27 September 2025, not a September 2027 intake.
+      - October 2029 is the expected completion month, not a completed qualification.
+  - id: foundation-science
+    institution: Universiti Malaysia Sabah
+    qualification: Foundation in Science
+    start: '2024-07'
+    end: '2025-06'
+    expected: false
+    highlights:
+      - CGPA 3.61
+      - MUET Band 4.5
+      - Passed all language evaluations.
+    source_bullets:
+      - Achieved a strong academic performance, passing all language evaluations.
+      - CGPA 3.61
+      - MUET Band 4.5
+    notes: []
+  - id: spm
+    institution: SMK Kota Marudu
+    qualification: Sijil Pelajaran Malaysia (SPM)
+    start: null
+    end: '2024'
+    expected: false
+    highlights:
+      - 8As
+      - CEFR C1
+      - Bahasa Malaysia Oral Test — Cemerlang
+      - Passed all language evaluations.
+    source_bullets:
+      - Achieved 8As in SPM and passed all language evaluations.
+      - 'Overall CEFR Rating: C1, Bahasa Malaysia Oral Test: Cemerlang'
+    notes:
+      - The résumé gives the qualification year, not a school attendance date range.

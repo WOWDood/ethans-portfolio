@@ -1,0 +1,246 @@
+themes: [IT & Hardware, Web & Data, Design, Business, Languages]
+source:
+  badge_evidence: User-supplied Credly screenshot; expiry dates are transcribed without inferring issue dates.
+  badge_artwork:
+    cisco-ccst-it-support: https://images.credly.com/images/0d9a7043-e0e8-4791-a067-1af5fd336afc/image.png
+    computer-hardware-basics: https://images.credly.com/images/19e742ef-13be-4d26-87ed-ac8f5fd0643c/image.png
+    opswat-icip: https://images.credly.com/images/f9f3c533-9b5a-47eb-8a3e-5734663116c0/image.png
+    isc2-candidate: https://images.credly.com/images/9180921d-4a13-429e-9357-6f9706a554f0/linkedin_thumb_image.png
+    unity-programmer: https://images.credly.com/images/51da8803-3699-4392-8ef5-3291e6bc084d/image.png
+    excel-expert: https://images.credly.com/images/30776dbe-fdda-47d5-b836-08a0a8afdaa3/image.png
+    word-expert: https://images.credly.com/images/c9ab0811-5167-49b4-9459-7dd2e3d0a192/image.png
+    adobe-after-effects: https://images.credly.com/images/ec50a411-3a2b-4bcd-ab5f-eaaeb53c2d46/Adobe_Certified_Professional_Adobe_After_Effects_digital_badge.png
+    pmi-project-management-ready: https://images.credly.com/images/650208e5-851e-45d3-9ee9-cea899428427/blob
+    google-prompting: https://images.credly.com/images/192e1b0b-886c-4afa-9943-b6723c4d1e26/blob
+    google-marketing-ecommerce: https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png
+    ubs-inventory-billing: https://www.access-ubs.com/image/catalog/access-ubs-logo-header1.png
+entries:
+  - id: ec-council-ceh
+    title: Certified Ethical Hacker (CEH)
+    theme: IT & Hardware
+    kind: certification
+    issuer: EC-Council
+    provider: null
+    date: '2026-03-03'
+    status: Completed
+    badge:
+      source: ec-council-ceh-badge.png
+      alt: EC-Council Certified Ethical Hacker badge
+    source:
+      evidence: User-supplied EC-Council CEH certificate and badge artwork.
+      renewable_on: '2027-04-01'
+  - id: cisco-ccst-it-support
+    badge:
+      source: cisco-ccst-it-support-badge.png
+      alt: Cisco Certified Support Technician IT Support badge
+    expires: '2030-07-24'
+    title: Cisco IT Support (CCST)
+    theme: IT & Hardware
+    kind: certification
+    issuer: Cisco Systems Inc.
+    provider: null
+    date: '2025-07'
+    status: Completed
+    notes: []
+  - id: computer-hardware-basics
+    badge:
+      source: computer-hardware-basics-badge.png
+      alt: Cisco Computer Hardware Basics badge
+    title: Computer Hardware Basics
+    theme: IT & Hardware
+    kind: course
+    issuer: Cisco Training Academy
+    provider: null
+    date: '2024-05-02'
+    status: Completed
+    notes: []
+  - id: comptia-core-1
+    title: CompTIA A+ Core 1 (220-1101)
+    theme: IT & Hardware
+    kind: exam
+    issuer: CompTIA
+    provider: Nexperts Academy
+    date: '2024-05'
+    status: Core 1 passed with training
+    notes:
+      - Ethan confirmed passing Core 1 with training. This is not the full CompTIA A+ certification.
+  - id: opswat-icip
+    badge:
+      source: opswat-icip-badge.png
+      alt: OPSWAT Introduction to Critical Infrastructure Protection badge
+    expires: '2026-06-06'
+    title: Introduction to Critical Infrastructure Protection (ICIP)
+    theme: IT & Hardware
+    kind: course
+    issuer: OPSWAT
+    provider: null
+    date: '2025-06'
+    status: Completed
+    notes: []
+  - id: isc2-candidate
+    title: ISC2 Candidate
+    theme: IT & Hardware
+    kind: candidate
+    issuer: ISC2
+    provider: null
+    date: null
+    status: Candidate status
+    expires: '2026-08-31'
+    badge:
+      source: isc2-candidate-badge.png
+      alt: ISC2 Candidate badge
+    notes:
+      - Candidate designation, not a cybersecurity certification. Expiry confirmed by Ethan's Credly screenshot; issue date not supplied.
+  - id: web-application-fundamental
+    title: SBIT WF211 — Web Application Fundamental
+    theme: Web & Data
+    kind: course
+    issuer: SBIT Training Sdn Bhd
+    provider: null
+    date: '2025-08'
+    status: Completed
+    notes: []
+  - id: unity-programmer
+    badge:
+      source: unity-programmer-badge.png
+      alt: Unity Certified User Programmer badge
+    expires: '2030-06-19'
+    title: Unity Certified User Programmer
+    theme: Web & Data
+    kind: certification
+    issuer: Unity Software Inc.
+    provider: null
+    date: '2025-06'
+    status: Completed
+    notes: []
+  - id: excel-expert
+    badge:
+      source: excel-expert-badge.png
+      alt: Microsoft Office Specialist Excel Expert Microsoft 365 Apps badge
+    expires: '2030-06-25'
+    title: Microsoft Excel Expert
+    theme: Web & Data
+    kind: certification
+    issuer: Microsoft Corp.
+    provider: null
+    date: '2025-06'
+    status: Completed
+    notes: []
+  - id: word-expert
+    badge:
+      source: word-expert-badge.png
+      alt: Microsoft Office Specialist Word Expert Microsoft 365 Apps badge
+    expires: '2030-06-22'
+    title: Microsoft Word Expert
+    theme: Web & Data
+    kind: certification
+    issuer: Microsoft Corp.
+    provider: null
+    date: '2025-06'
+    status: Completed
+    notes: []
+  - id: intro-power-bi
+    title: Intro to Power BI
+    theme: Web & Data
+    kind: course
+    issuer: National Training Week
+    provider: null
+    date: '2024-06'
+    status: Completed
+    notes: []
+  - id: google-prompting
+    title: Google Prompting Essentials
+    badge:
+      source: google-prompting-essentials-badge.png
+      alt: Google Prompting Essentials completion badge
+    theme: Web & Data
+    kind: course
+    issuer: Google LLC
+    provider: null
+    date: '2025-09'
+    status: Completed
+    notes: []
+  - id: adobe-after-effects
+    badge:
+      source: adobe-after-effects-badge.png
+      alt: Adobe Certified Professional After Effects badge
+    expires: '2030-07-17'
+    title: Adobe Certified Professional in Visual Effects and Motion Graphics for After Effects
+    theme: Design
+    kind: certification
+    issuer: Adobe Inc.
+    provider: null
+    date: '2025-07'
+    status: Completed
+    notes: []
+  - id: pmi-project-management-ready
+    title: PMI Project Management Ready™
+    theme: Business
+    kind: certification
+    issuer: Project Management Institute
+    provider: null
+    date: null
+    status: Completed
+    expires: '2031-02-14'
+    badge:
+      source: pmi-project-management-ready-badge.png
+      alt: PMI Project Management Ready professional certification badge
+    notes:
+      - Credential and expiry confirmed by Ethan's Credly screenshot; issue date not supplied.
+  - id: google-marketing-ecommerce
+    title: Google Digital Marketing & E-Commerce
+    badge:
+      source: google-logo.png
+      alt: Google logo
+    theme: Business
+    kind: course
+    issuer: Google LLC
+    provider: null
+    date: '2025-11'
+    status: Partial Completion
+    notes:
+      - Partial Completion must remain visible wherever this entry is displayed.
+  - id: ubs-inventory-billing
+    title: UBS Inventory & Billing
+    badge:
+      source: access-ubs-logo.png
+      alt: Access UBS product logo
+    theme: Business
+    kind: exam
+    issuer: Access Group
+    provider: null
+    date: '2025-07'
+    status: Completed
+    notes:
+      - Ethan confirmed Access Group as the issuer.
+    source:
+      issuer: Union Bank of Switzerland
+      note: Original résumé attribution was incorrect; Ethan confirmed Access Group.
+  - id: art-of-selling
+    title: The Art of Selling
+    theme: Business
+    kind: course
+    issuer: National Training Week
+    provider: null
+    date: '2024-07'
+    status: Completed
+    notes: []
+  - id: food-handling
+    title: Food Handling
+    theme: Business
+    kind: course
+    issuer: EduFood
+    provider: null
+    date: '2023-08'
+    status: Completed
+    notes: []
+  - id: ef-set
+    title: 'EF SET: C2 Proficient'
+    theme: Languages
+    kind: assessment
+    issuer: EF SET
+    provider: null
+    date: '2022-08'
+    status: Completed
+    notes:
+      - A dated assessment result, shown alongside the separate SPM CEFR and MUET results.

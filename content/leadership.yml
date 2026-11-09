@@ -1,0 +1,82 @@
+entries:
+  - id: iem-ums-media
+    organisation: IEM–UMS Student Section
+    role: Media and Publicity Committee
+    badge:
+      source: iem-ums-student-section-logo.jpg
+      alt: IEM–UMS Student Section logo
+    start: '2025-11'
+    end: null
+    ongoing: true
+    engagement: null
+    activities:
+      - IEM Career Talk
+    notes:
+      - Organisation and start month confirmed by Ethan.
+  - id: pmkj-general-secretary-secretariat
+    organisation: Persatuan Mahasiswa Fakulti Kejuruteraan UMS (PMFKJ)
+    role: General Secretary (Secretariat)
+    badge:
+      source: pmkj-logo.png
+      alt: PMFKJ Engineering Students’ Society logo
+    start: '2025-12'
+    end: null
+    ongoing: true
+    engagement: null
+    activities:
+      - Media and Publicity Unit for Allench Cup Program
+      - Vice Secretary for FTEC'26 Program
+  - id: computer-engineering-club-media
+    organisation: Computer Engineering Club, Universiti Malaysia Sabah
+    role: Media and Publicity Committee
+    badge:
+      source: ums-computer-engineering-club-logo.png
+      alt: UMS Computer Engineering Club logo
+    start: '2025'
+    end: null
+    ongoing: true
+    engagement: null
+    activities:
+      - Media and Publicity Unit for TechXplore 2025
+    notes: []
+  - id: foundation-english-representative
+    organisation: Tutorial 6, UMS Foundation in Science
+    role: English Class Representative
+    start: '2024'
+    end: '2025'
+    ongoing: false
+    engagement: null
+    notes: []
+  - id: scouts-platoon-leader
+    organisation: Malaysia Scouts Club 04, SMK Kota Marudu
+    role: Platoon Leader
+    start: '2022'
+    end: '2023'
+    ongoing: false
+    engagement: null
+    notes: []
+  - id: football-publicity
+    organisation: Football (Association) Club, SMK Kota Marudu
+    role: Publicity Committee
+    start: '2022'
+    end: '2023'
+    ongoing: false
+    engagement: null
+    notes: []
+  - id: science-maths-special-tasks
+    organisation: Science and Mathematics Club, SMK Kota Marudu
+    role: Special Tasks Committee
+    start: '2022'
+    end: '2023'
+    ongoing: false
+    engagement: null
+    notes: []
+  - id: science-maths-director
+    organisation: Science and Mathematics Club, SMK Kota Marudu
+    role: Director / Evening Section
+    start: '2020'
+    end: '2021'
+    ongoing: false
+    engagement: null
+    notes:
+      - The role title follows the résumé; responsibilities are not specified.

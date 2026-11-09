@@ -1,0 +1,78 @@
+name: Ethan Oneil Azlan
+headline: Computer Engineering undergraduate
+bio: >-
+  I build hardware projects, troubleshoot computers and networks, and develop websites.
+  I’m studying Computer Engineering at Universiti Malaysia Sabah.
+hero_lines: [Hardware., Software., Same curiosity.]
+focus_lines: [Learning how things work., Then making them work.]
+availability:
+  primary: Seeking internships
+  secondary: Open to junior roles and selected freelance projects.
+about:
+  heading: From components to code.
+  paragraphs:
+    - My experience spans PC assembly, hands-on IT support, electronics projects, and web development. I like the point where an idea becomes something you can actually use.
+    - At ACOTech Hackathon 2025, our team placed third as the only first-year team. I contributed ideas, created the slides, and delivered most of our presentation.
+contact:
+  heading: Have something in mind?
+  intro: For an internship, a junior opportunity, or a project, you can find me here.
+  method: formspree
+  form_id: null # Configure the delivery email with the provider, not in this file.
+links:
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/ethanoneilazlan/
+  - label: GitHub
+    url: https://github.com/WOWDood
+  - label: Credly
+    url: https://www.credly.com/users/ethan-o-azlan
+tagline: Curiosity, put into practice.
+portrait:
+  source: ethan-portrait.png # Relative to content/assets/; builds export processed copies only.
+  alt: Portrait of Ethan Oneil Azlan
+  focal_point: [0.5, 0.06]
+languages:
+  - name: English
+    speaking: Bilingual
+    writing: Proficient
+  - name: Malay
+    speaking: Bilingual
+    writing: Proficient
+source:
+  summary: >-
+    A versatile and passionate student with a strong blend of technical acumen and
+    hands-on experience in customer service and event coordination. With a proven
+    track record of successful projects and a commitment to continuous learning,
+    I excel in dynamic environments that demand proactive problem-solving and
+    collaboration. Poised to bring a dedicated work ethic and a comprehensive
+    skill set to a team that values innovation and growth.
+  soft_skills:
+    - Active Listening
+    - Adaptable
+    - Attention to Detail
+    - Collaboration
+    - Communication
+    - Conflict Resolution
+    - Coordination
+    - Creativity
+    - Critical Thinking
+    - Customer Interaction
+    - Demonstrations
+    - Digital Literacy
+    - Documentation
+    - Multitasking
+    - Organization
+    - Positive Attitude
+    - Presentation
+    - Problem-Solving
+    - Proactivity
+    - Product Knowledge
+    - Public Speaking
+    - Resilience
+    - Sales Acumen
+    - Teamwork
+    - Technical Writing
+    - Troubleshooting
+  references: Available upon request
+  notes:
+    - The original phone number and residential location are intentionally excluded from this content layer.
+    - Original summary and soft skills are retained for comparison; they are excluded from the public profile.

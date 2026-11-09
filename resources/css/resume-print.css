@@ -1,0 +1,48 @@
+@page { size: A4; margin: 12mm 14mm; }
+@media print {
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: white !important; color: #222 !important; font-family: 'DM Sans', Arial, sans-serif; font-size: 9pt; }
+    .site-header, .site-footer, .skip-link, .print-hide, .homepage-screen { display: none !important; }
+    .homepage-print { display: block !important; }
+    .resume-page, .resume-paper { display: block; width: 100%; max-width: none; margin: 0; padding: 0; border: 0; background: white; color: #222; }
+    .resume-sheet { display: block; break-after: page; }
+    .resume-sheet:last-child { break-after: auto; }
+    .resume-paper p, .resume-paper ul { margin: 0; }
+    .resume-paper a { color: #383838; text-decoration: none; }
+    .resume-header .eyebrow { display: none; }
+    .resume-header h1 { margin: 0; font-size: 25pt; line-height: 1.1; letter-spacing: -0.8pt; font-weight: 600; }
+    .resume-position { margin-top: 4pt !important; color: #383838; font-size: 11pt; }
+    .resume-intro { margin-top: 7pt !important; color: #333; font-size: 9pt; line-height: 1.45; }
+    .resume-links { display: flex; gap: 14pt; margin-top: 7pt; font-size: 8pt; }
+    .resume-block { margin-top: 10pt; }
+    .resume-sheet > .resume-block:first-child { margin-top: 0; }
+    .resume-block > h2 { margin: 0 0 5pt; border-bottom: 1pt solid #777; padding-bottom: 3pt; font-size: 11pt; color: #383838; font-weight: 600; letter-spacing: 0; break-after: avoid; }
+    .resume-paper .timeline-entry { display: grid; grid-template-columns: 30mm 1fr; gap: 8pt; border: 0; padding: 6pt 0; break-inside: avoid; }
+    .resume-paper .entry-date { font-family: 'DM Sans', Arial, sans-serif; color: #444; font-size: 8pt; line-height: 1.45; }
+    .resume-paper .entry-engagement { margin-top: 2pt !important; color: #444; font-size: 7.5pt; line-height: 1.4; }
+    .resume-paper .timeline-copy h3 { margin: 0; font-size: 9pt; font-weight: 600; line-height: 1.4; }
+    .resume-paper .entry-organisation { margin-top: 2pt !important; color: #444; font-size: 8pt; line-height: 1.4; }
+    .resume-paper .experience-bullets { display: block; max-width: none; margin-top: 4pt; padding-left: 10pt; list-style: disc; font-size: 8.5pt; line-height: 1.45; }
+    .experience-bullets li { margin-bottom: 2pt; }
+    .resume-paper .event-clients { display: none; }
+    .resume-paper .event-highlight { margin-top: 3pt; font-size: 8pt; line-height: 1.35; }
+    .resume-paper .education-highlights { display: flex; flex-wrap: wrap; gap: 2pt 9pt; padding: 0; margin-top: 3pt; list-style: none; font-size: 8pt; line-height: 1.4; }
+    .resume-project { margin: 5pt 0; font-size: 8pt; line-height: 1.4; break-inside: avoid; }
+    .resume-project h3 { margin: 0; font-size: 8.5pt; font-weight: 600; }
+    .resume-skill { margin: 2pt 0 !important; font-size: 8pt; line-height: 1.4; }
+    .resume-paper .credential-group { display: grid; grid-template-columns: 23mm 1fr; gap: 7pt; border: 0; padding: 2pt 0; }
+    .resume-paper .credential-group > h3 { margin: 0; font-size: 8pt; font-weight: 600; }
+    .resume-paper .credential-group > ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3pt 8pt; padding: 0; list-style: none; }
+    .credential-entry { display: flex; gap: 4pt; align-items: flex-start; break-inside: avoid; }
+    .credential-copy { min-width: 0; }
+    .portfolio-badge { flex: 0 0 auto; background: white; }
+    .portfolio-badge img { display: block; width: 100%; height: 100%; object-fit: contain; filter: grayscale(1); }
+    .credential-badge { width: 7mm; height: 7mm; }
+    .credential-expiry { margin-top: 1pt !important; font-size: 6.5pt; line-height: 1.3; color: #444; }
+    .resume-paper .credential-entry h4 { margin: 0; font-size: 7.5pt; font-weight: 600; line-height: 1.3; }
+    .resume-paper .credential-meta, .resume-paper .credential-provider { margin-top: 1pt !important; font-size: 7pt; color: #444; line-height: 1.3; }
+    .resume-paper .credential-status { display: block; width: fit-content; border: 0; margin-top: 1pt !important; padding: 0; color: #383838; font-size: 7pt; line-height: 1.3; font-weight: 600; }
+    .resume-role { display: flex; align-items: center; gap: 4pt; margin: 2pt 0 !important; font-size: 7.5pt; line-height: 1.35; break-inside: avoid; }
+    .role-badge { width: 5mm; height: 5mm; }
+    strong { font-weight: 600; }
+}
