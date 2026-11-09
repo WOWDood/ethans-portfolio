@@ -61,8 +61,7 @@ body, .project-entry, .about-panel, .resume-paper, .credential-group, .navigatio
 .skip-link:focus { top: 1rem; }
 .site-header { position: sticky; top: 0; z-index: 30; background: var(--glass); backdrop-filter: blur(18px); border-bottom: 1px solid var(--line); }
 .navigation-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: min(100%, 77rem); min-height: 4rem; padding: 0.35rem var(--page-gutter); margin-inline: auto; }
-.wordmark { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; letter-spacing: -0.07em; }
-.wordmark span { color: var(--accent); }
+.wordmark { display: inline-flex; flex: 0 0 auto; }
 .navigation-actions, .desktop-navigation { display: flex; align-items: center; gap: 0.35rem; }
 .desktop-navigation a { padding: 0.8rem 1rem; font-size: 0.73rem; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-radius: var(--radius); }
 .desktop-navigation a:hover, .desktop-navigation a[aria-current] { color: var(--ink); background: var(--soft); }
@@ -82,7 +81,7 @@ body, .project-entry, .about-panel, .resume-paper, .credential-group, .navigatio
 .home-page { --hero-nav-space: 4rem; }
 .home-page .site-header { margin-bottom: calc(-1 * var(--hero-nav-space)); }
 .home-page .site-header[data-over-hero] { color: #fff; background: transparent; backdrop-filter: none; border-bottom-color: transparent; }
-.site-header[data-over-hero] :is(.wordmark span, .desktop-navigation a, .theme-toggle) { color: #fff; }
+.site-header[data-over-hero] :is(.desktop-navigation a, .theme-toggle) { color: #fff; }
 .site-header[data-over-hero] :is(.desktop-navigation a, .theme-toggle, .mobile-menu summary):hover { background: #ffffff24; }
 .site-header[data-over-hero] :is(.wordmark, .desktop-navigation a, .theme-toggle, .mobile-menu summary):focus-visible { outline-color: #fff; }
 .site-header[data-over-hero] .menu-surface { color: var(--ink); }
@@ -330,7 +329,7 @@ body, .project-entry, .about-panel, .resume-paper, .credential-group, .navigatio
 .honeypot { display: none; }
 .site-footer { background: #151515; color: #c4c4c4; font-size: 0.78rem; line-height: 1.6; }
 .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding-block: 2rem; }
-.footer-name { font-weight: 650; color: #fff; }
+.footer-name { display: inline-flex; align-items: center; gap: 0.65rem; font-weight: 650; color: #fff; }
 .footer-inner > a:last-child { min-height: 2.75rem; display: inline-flex; gap: 0.7rem; align-items: center; color: #fff; }
 .site-footer a:hover { text-decoration: underline; text-underline-offset: 0.25em; }
 .site-footer a:focus-visible { outline-color: #fff; }

@@ -38,7 +38,8 @@ class BrowserArtifacts
                 throw new RuntimeException('The browser did not produce the public résumé PDF. The previous export was kept.');
             }
 
-            $this->files->put($work.'/social.html', view('portfolio.social-card', ['profile' => $content['profile'], 'fontData' => $fontData])->render());
+            $logoData = base64_encode($this->files->get($staging.'/portfolio-logo.webp'));
+            $this->files->put($work.'/social.html', view('portfolio.social-card', ['profile' => $content['profile'], 'fontData' => $fontData, 'logoData' => $logoData])->render());
             $this->run($browser, $work, $work.'/social.html', ['--hide-scrollbars', '--window-size=1200,630', '--screenshot='.$staging.'/social-card.png']);
             $dimensions = @getimagesize($staging.'/social-card.png');
 

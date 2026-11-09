@@ -42,14 +42,17 @@
         @if (config('portfolio.font_file'))
             <link rel="preload" href="/{{ config('portfolio.font_file') }}" as="font" type="font/woff2" crossorigin>
         @endif
-        <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23383838'/%3E%3Ctext x='20' y='28' text-anchor='middle' font-size='26' fill='white' font-family='sans-serif'%3Ee%3C/text%3E%3C/svg%3E">
+        <link rel="icon" href="/portfolio-icon.png" type="image/png" sizes="48x48">
+        <link rel="apple-touch-icon" href="/portfolio-touch-icon.png" sizes="180x180">
         @vite(config('portfolio.entrypoints'), config('portfolio.build_directory'))
     </head>
     <body @class(['home-page' => $canonicalPath === '/'])>
         <a href="#main" class="skip-link">Skip to content</a>
         <header class="site-header" @if ($canonicalPath === '/') data-over-hero @endif>
             <div class="navigation-bar">
-            <a href="{{ route('home', absolute: false) }}" class="wordmark" aria-label="{{ $profile['name'] }}, home">{{ strtolower(explode(' ', $profile['name'])[0]) }}<span aria-hidden="true">.</span></a>
+            <a href="{{ route('home', absolute: false) }}" class="wordmark" aria-label="{{ $profile['name'] }}, home">
+                <img src="/portfolio-logo.webp" width="44" height="44" alt="{{ $profile['name'] }} logo">
+            </a>
             <div class="navigation-actions">
                 <nav aria-label="Main navigation" class="desktop-navigation">
                     <a href="{{ route('home', absolute: false) }}#work">Work</a>
@@ -75,7 +78,10 @@
         {{ $slot }}
         <footer class="site-footer">
             <div class="footer-inner page-container">
-                <a href="{{ route('home', absolute: false) }}" class="footer-name">{{ $profile['name'] }}</a>
+                <a href="{{ route('home', absolute: false) }}" class="footer-name">
+                    <img src="/portfolio-logo.webp" width="40" height="40" alt="{{ $profile['name'] }} logo" aria-hidden="true" loading="lazy">
+                    {{ $profile['name'] }}
+                </a>
                 <p>{{ $profile['tagline'] }}</p>
                 <a href="{{ route('resume.download', absolute: false) }}" download>Download résumé <span aria-hidden="true">↓</span></a>
             </div>

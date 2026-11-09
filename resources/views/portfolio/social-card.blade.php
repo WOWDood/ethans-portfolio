@@ -14,13 +14,13 @@
         h1 { font-size: 81px; line-height: 1; font-weight: 700; letter-spacing: -5px; margin: 0; }
         h1 span:last-child { font-weight: 400; color: #dedede; }
         .headline { font-size: 23px; color: #dedede; margin: 29px 0 0; }
-        .mark { position: absolute; top: 36px; right: 50px; font-size: 46px; font-weight: 700; letter-spacing: -3px; }
+        .mark { position: absolute; top: 36px; right: 50px; }
     </style>
 </head>
 <body>
     <main>
         <p class="name">{{ $profile['name'] }}</p>
-        <div class="mark" aria-hidden="true">e.</div>
+        <img class="mark" src="data:image/webp;base64,{{ $logoData }}" width="84" height="84" alt="">
         <h1>@foreach ($profile['hero_lines'] as $line)<span>{{ $line }}</span>@unless ($loop->last)<br>@endunless @endforeach</h1>
         <p class="headline">{{ $profile['headline'] }}</p>
     </main>

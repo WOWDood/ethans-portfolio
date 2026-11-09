@@ -40,6 +40,9 @@ function preparePortfolioBuild(): string
     File::put($fixture.'/public/index.php', '<?php echo "private";');
     File::put($fixture.'/public/private.pdf', 'must not be exported');
     File::put($fixture.'/public/hot', 'http://127.0.0.1:5173');
+    foreach (['portfolio-icon.png', 'portfolio-logo.webp', 'portfolio-touch-icon.png'] as $brandAsset) {
+        File::copy(public_path($brandAsset), $fixture.'/public/'.$brandAsset);
+    }
     File::put($fixture.'/public/build/assets/portfolio.css', 'body { color: #047a7a; }');
     File::put($fixture.'/public/build/assets/portfolio.js', 'document.documentElement.dataset.ready = "true";');
     File::put($fixture.'/public/build/assets/shared.js', 'export const ready = true;');
@@ -77,6 +80,9 @@ test('builds assets and exports only public HTML and its production asset depend
         'build/assets/shared.js',
         'ethan-oneil-azlan-resume.pdf',
         'index.html',
+        'portfolio-icon.png',
+        'portfolio-logo.webp',
+        'portfolio-touch-icon.png',
         'projects/acotech-hackathon-2025/index.html',
         'projects/arduino-automatic-curtain/index.html',
         'projects/english-asean-olympiad-2023/index.html',
@@ -88,7 +94,7 @@ test('builds assets and exports only public HTML and its production asset depend
         'social-card.png',
     ]);
     expect(File::get($fixture.'/dist/index.html'))
-        ->toContain('Ethan Oneil Azlan', 'I’m studying', 'data-theme-toggle', '/build/assets/portfolio.js')
+        ->toContain('Ethan Oneil Azlan', 'I’m studying', 'data-theme-toggle', '/build/assets/portfolio.js', '/portfolio-icon.png', '/portfolio-logo.webp', '/portfolio-touch-icon.png')
         ->not->toContain('wire:', 'livewire', 'csrf-token', '127.0.0.1', 'localhost', 'proton.me');
     expect(File::isDirectory($fixture.'/dist.building'))->toBeFalse();
 });
@@ -178,7 +184,7 @@ test('discovers added Markdown pages and removes unpublished pages on rebuild', 
 
     $path = $fixture.'/dist/projects/livewire-widget/index.html';
     $document = HTMLDocument::createFromString(File::get($path));
-    $image = $document->querySelector('img');
+    $image = $document->querySelector('.project-prose img');
     expect(File::get($path))->toContain('Livewire widget', 'wire:model', 'id="result"')->not->toContain('wire:snapshot', 'TEST-LOCATION-METADATA');
     expect(getimagesize($fixture.'/dist'.$image->getAttribute('src'))[2])->toBe(IMAGETYPE_WEBP);
     expect(File::isDirectory($fixture.'/dist/projects/private-draft'))->toBeFalse();
@@ -279,7 +285,7 @@ test('exports responsive portrait files and the self-hosted font without source 
     $this->artisan('site:build', ['--skip-assets' => true])->assertSuccessful();
 
     $document = HTMLDocument::createFromString(File::get($fixture.'/dist/index.html'));
-    $image = $document->querySelector('img');
+    $image = $document->querySelector('.hero-portrait img');
     expect($image->getAttribute('alt'))->toBe('Portrait of Ethan Oneil Azlan');
     expect($image->getAttribute('srcset'))->toContain('120w');
     expect(getimagesize($fixture.'/dist'.$image->getAttribute('src'))[2])->toBe(IMAGETYPE_WEBP);

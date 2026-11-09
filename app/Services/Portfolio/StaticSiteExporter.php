@@ -45,6 +45,8 @@ class StaticSiteExporter
             $this->files->ensureDirectoryExists($staging);
             $this->copyAssets($staging);
             $this->copyFonts($staging);
+            $this->copyPublicFile('portfolio-icon.png', $staging);
+            $this->copyPublicFile('portfolio-touch-icon.png', $staging);
 
             $pages = $this->pages();
             $this->metadata->origin();
@@ -322,8 +324,8 @@ class StaticSiteExporter
             }
 
             foreach ($sources as $source) {
-                if (! preg_match('/^\/media\/[a-z0-9-]+\.webp$/', $source)) {
-                    throw new RuntimeException('Export only processed WebP images from public/media/.');
+                if ($source !== '/portfolio-logo.webp' && ! preg_match('/^\/media\/[a-z0-9-]+\.webp$/', $source)) {
+                    throw new RuntimeException('Export only processed WebP images from public/media/ or the portfolio logo.');
                 }
 
                 $relative = ltrim($source, '/');
