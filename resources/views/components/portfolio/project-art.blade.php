@@ -3,6 +3,34 @@
 <div {{ $attributes->class(['project-art', 'art-'.$slug]) }} aria-hidden="true">
     <svg viewBox="0 0 600 360" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
         @switch($slug)
+            @case('kiar-posters-and-short-film')
+                <rect x="136" y="64" width="150" height="220" rx="12" class="art-panel"/>
+                <rect x="155" y="84" width="112" height="112" rx="6" class="art-block"/>
+                <path d="m164 174 27-32 21 18 28-41 20 29m-105 71h99m-99 17h75" class="art-line"/>
+                <rect x="250" y="135" width="219" height="158" rx="14" class="art-panel"/>
+                <rect x="268" y="154" width="183" height="95" rx="6" class="art-block"/>
+                <path d="m349 180 27 21-27 21zM273 269h173" class="art-line"/>
+                <circle cx="317" cy="269" r="5" class="art-dot"/>
+                @break
+            @case('big-bang-bites')
+                <rect x="126" y="68" width="348" height="224" rx="18" class="art-panel"/>
+                <path d="M126 105h348" class="art-line art-soft"/>
+                <circle cx="149" cy="87" r="3" class="art-dot"/><circle cx="163" cy="87" r="3" class="art-dot"/><circle cx="177" cy="87" r="3" class="art-dot"/>
+                <rect x="151" y="130" width="117" height="133" rx="10" class="art-block"/>
+                <path d="M174 203h71m-66-10a31 31 0 0 1 62 0m-31-33v-6" class="art-line"/>
+                <path d="M290 143h151m-151 22h105m-105 22h131" class="art-line art-soft"/>
+                <rect x="290" y="216" width="89" height="32" rx="16" class="art-block"/>
+                <path d="M320 232h30" class="art-line"/>
+                @break
+            @case('restaurant-pos')
+                <rect x="125" y="70" width="350" height="220" rx="18" class="art-panel"/>
+                <path d="M125 106h350m-123 0v184" class="art-line art-soft"/>
+                <rect x="151" y="131" width="52" height="44" rx="7" class="art-block"/><rect x="213" y="131" width="52" height="44" rx="7" class="art-block"/><rect x="275" y="131" width="52" height="44" rx="7" class="art-block"/>
+                <rect x="151" y="186" width="52" height="44" rx="7" class="art-block"/><rect x="213" y="186" width="52" height="44" rx="7" class="art-block"/><rect x="275" y="186" width="52" height="44" rx="7" class="art-block"/>
+                <path d="M373 139h78m-78 19h64m-64 19h72m-72 24h78" class="art-line art-soft"/>
+                <rect x="373" y="219" width="78" height="34" rx="8" class="art-block"/>
+                <path d="m404 235 6 6 12-12" class="art-line"/>
+                @break
             @case('acotech-hackathon-2025')
                 <circle cx="300" cy="180" r="129" class="art-orbit"/><circle cx="300" cy="180" r="93" class="art-orbit"/>
                 <path d="M185 184h-30m290 0h-30M300 67v40m0 147v40M211 91l30 30m118 118 30 30M389 91l-30 30m-118 118-30 30" class="art-line"/>

@@ -37,6 +37,24 @@ test('features the annual dinner above the list of supported events', function (
     ]);
 });
 
+test('presents recent coursework and school achievements newest first', function () {
+    $this->withoutVite();
+
+    $this->get(route('home'))->assertOk()->assertSeeInOrder([
+        'Big Bang Bites',
+        'POS System XE',
+        'ACOTech Hackathon 2025',
+        'KIAR Posters & Short Film',
+        'School achievements',
+        '2023',
+        'Merit Award in Science.',
+        '2022',
+        'Merit Awards in English and Science.',
+        'State-Level Virtual English Debate Competition',
+        'Best Actor, English Fest',
+    ]);
+});
+
 test('uses profile edits in page copy and metadata while escaping HTML', function () {
     $directory = portfolioContentFixture();
     $profile = Yaml::parseFile($directory.'/profile.yml');

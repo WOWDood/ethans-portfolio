@@ -217,6 +217,13 @@ class ContentValidator
                 'entries.*.institution' => $text, 'entries.*.qualification' => $text,
                 'entries.*.expected' => ['required', 'boolean:strict'],
                 'entries.*.highlights' => ['present', 'array', 'list'], 'entries.*.highlights.*' => $text,
+                'achievements' => ['sometimes', 'array', 'list'],
+                'achievements.*' => ['array:year,entries'],
+                'achievements.*.year' => ['required', 'string', 'regex:/^\d{4}$/', 'distinct:strict'],
+                'achievements.*.entries' => ['required', 'array', 'list', 'min:1'],
+                'achievements.*.entries.*' => ['array:title,detail'],
+                'achievements.*.entries.*.title' => $text,
+                'achievements.*.entries.*.detail' => $text,
             ],
             'leadership' => $source + $entries + $period + $roles + $badge + [
                 'entries.*' => ['array:id,organisation,role,start,end,ongoing,engagement,badge,activities,notes,source_bullets,source'],

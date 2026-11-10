@@ -12,6 +12,9 @@ test('renders each published project with its own title and navigation', functio
         ->assertOk()->assertSee($title)->assertSee('My role')->assertSee('All projects')
         ->assertSee('Up next')->assertHeaderMissing('Set-Cookie');
 })->with([
+    ['big-bang-bites', 'Big Bang Bites'],
+    ['restaurant-pos', 'POS System XE'],
+    ['kiar-posters-and-short-film', 'KIAR Posters & Short Film'],
     ['acotech-hackathon-2025', 'ACOTech Hackathon 2025'],
     ['wind-powered-vehicle', 'Wind-powered vehicle prototype'],
     ['wordpress-personal-website', 'WordPress personal website'],

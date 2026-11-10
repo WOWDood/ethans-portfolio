@@ -135,6 +135,24 @@ new #[Layout('layouts::portfolio')] class extends Component
     <section id="education" aria-labelledby="education-heading">
         <x-portfolio.section-heading eyebrow="Education" title="Building the foundations." heading-id="education-heading" />
         <x-portfolio.education-list :entries="$content['education']['entries']" class="section-list" />
+        @if ($achievementYears = $content['education']['achievements'] ?? [])
+            <div class="education-achievements">
+                <h3>School achievements</h3>
+                @foreach ($achievementYears as $achievementYear)
+                    <section class="achievement-year" wire:key="achievement-year-{{ $achievementYear['year'] }}">
+                        <h4>{{ $achievementYear['year'] }}</h4>
+                        <ul>
+                            @foreach ($achievementYear['entries'] as $achievement)
+                                <li wire:key="achievement-{{ $achievementYear['year'] }}-{{ $loop->index }}">
+                                    <strong>{{ $achievement['title'] }}</strong>
+                                    <p>{{ $achievement['detail'] }}</p>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </section>
+                @endforeach
+            </div>
+        @endif
     </section>
 
     <section id="skills" aria-labelledby="skills-heading">

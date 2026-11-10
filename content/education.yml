@@ -51,3 +51,20 @@ entries:
       - 'Overall CEFR Rating: C1, Bahasa Malaysia Oral Test: Cemerlang'
     notes:
       - The résumé gives the qualification year, not a school attendance date range.
+achievements:
+  - year: '2023'
+    entries:
+      - title: Kangaroo Math & Science
+        detail: National Merit Award.
+      - title: ASEAN Olympiad
+        detail: Merit Award in Science.
+  - year: '2022'
+    entries:
+      - title: Kangaroo Math & Science
+        detail: National Merit Award.
+      - title: ASEAN Olympiad
+        detail: Merit Awards in English and Science.
+      - title: State-Level Virtual English Debate Competition
+        detail: Represented SMK Kota Marudu in the June competition organised by Malaysia’s Ministry of Education (KPM).
+      - title: Best Actor, English Fest
+        detail: Won Best Actor in SMK Kota Marudu’s mid-year school drama competition.

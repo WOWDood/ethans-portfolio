@@ -1,4 +1,5 @@
 @props(['project', 'number' => '01', 'href' => null])
+@inject('dates', 'App\Services\Portfolio\ContentDates')
 
 <article {{ $attributes->class(['project-entry']) }} data-project="{{ $project['slug'] }}" aria-labelledby="project-{{ $project['slug'] }}">
     <div class="project-visual">
@@ -10,7 +11,7 @@
     </div>
     <div class="project-copy">
         <div class="project-kicker">
-            <p class="eyebrow"><span class="project-number" aria-hidden="true">{{ $number }}</span>{{ ucfirst($project['kind']) }}@if ($project['date']) <span aria-hidden="true"> · </span>{{ substr($project['date'], 0, 4) }}@endif</p>
+            <p class="eyebrow"><span class="project-number" aria-hidden="true">{{ $number }}</span>{{ ucfirst($project['kind']) }}@if ($project['date']) <span aria-hidden="true"> · </span>{{ $dates->format($project['date']) }}@endif</p>
             @if ($href)<span class="project-arrow" aria-hidden="true">↗</span>@endif
         </div>
         <h3 id="project-{{ $project['slug'] }}" class="project-title">

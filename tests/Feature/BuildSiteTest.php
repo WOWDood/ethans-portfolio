@@ -67,7 +67,7 @@ test('builds assets and exports only public HTML and its production asset depend
 
     $status = Artisan::call('site:build');
 
-    expect(Artisan::output())->toContain('Exported 7 page(s)');
+    expect(Artisan::output())->toContain('Exported 10 page(s)');
     expect($status)->toBe(0);
 
     Process::assertRan([PHP_OS_FAMILY === 'Windows' ? 'npm.cmd' : 'npm', 'run', 'build']);
@@ -85,7 +85,10 @@ test('builds assets and exports only public HTML and its production asset depend
         'portfolio-touch-icon.png',
         'projects/acotech-hackathon-2025/index.html',
         'projects/arduino-automatic-curtain/index.html',
+        'projects/big-bang-bites/index.html',
         'projects/english-asean-olympiad-2023/index.html',
+        'projects/kiar-posters-and-short-film/index.html',
+        'projects/restaurant-pos/index.html',
         'projects/wind-powered-vehicle/index.html',
         'projects/wordpress-personal-website/index.html',
         'resume/index.html',
@@ -159,7 +162,7 @@ test('writes crawl settings and a sitemap only for configured public pages', fun
 
     expect(File::get($fixture.'/dist/robots.txt'))->toBe("User-agent: *\nAllow: /\nSitemap: https://portfolio.example/sitemap.xml\n");
     $sitemap = simplexml_load_string(File::get($fixture.'/dist/sitemap.xml'));
-    expect($sitemap->url)->toHaveCount(7);
+    expect($sitemap->url)->toHaveCount(10);
     expect((string) $sitemap->url[0]->loc)->toBe('https://portfolio.example/');
     expect(File::get($fixture.'/dist/sitemap.xml'))->not->toContain('localhost', 'dashboard', 'login', 'proton.me');
 });
