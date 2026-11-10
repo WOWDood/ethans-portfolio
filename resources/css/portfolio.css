@@ -102,41 +102,33 @@ body, .project-entry, .about-panel, .resume-paper, .credential-group, .navigatio
     background: radial-gradient(ellipse, #bacbd635, #bacbd613 37%, transparent 70%);
     opacity: 0;
 }
-.hero-traces { position: absolute; inset: auto auto 5% 0; width: clamp(17rem, 35vw, 33rem); }
-.hero-traces svg { display: block; width: 100%; height: auto; }
-.hero-traces :is(path, circle, rect) { stroke-width: 1; vector-effect: non-scaling-stroke; }
-.hero-circuit-routes { fill: none; stroke: url(#hero-circuit-ink); stroke-linecap: round; stroke-linejoin: round; }
-.hero-circuit-nodes { fill: #111; stroke: #b3c3ca6b; }
-.hero-circuit-package { fill: #15191bd9; stroke: #b3c3ca80; }
-.hero-circuit-die { fill: #b3c3ca0e; stroke: #b3c3ca38; }
-.hero-circuit-etch { fill: none; stroke: #b3c3ca4d; stroke-linecap: round; }
-.hero-circuit-index { fill: #b3c3ca9c; }
-.hero-mobile-traces { display: none; }
+.hero-studio-light {
+    position: absolute;
+    inset: auto auto -34% -23%;
+    width: min(83vw, 78rem);
+    height: 94%;
+    rotate: -22deg;
+    background:
+        radial-gradient(ellipse 57% 17% at 43% 48%, #e6e6e619, #e6e6e608 58%, transparent 100%),
+        radial-gradient(ellipse at 43% 52%, #bdbdbd1c, #bdbdbd0a 41%, transparent 72%);
+}
 .hero-bubbles { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .bubble-template { display: none; }
-.bubble-ring, .bubble-cursor, .bubble-rays, .bubble-lasso { fill: none; stroke: #d5fff5; stroke-width: 1.5; stroke-linecap: round; }
-.bubble-ring { fill: #1118; stroke-dasharray: 3 4; }
-.bubble-lasso { stroke-dasharray: 4 4; stroke-linejoin: round; filter: drop-shadow(0 0 2px #111); }
-.bubble-cursor, .bubble-rays { opacity: 0; }
+.bubble-ring, .bubble-echo, .bubble-highlight { vector-effect: non-scaling-stroke; }
+.bubble-ring { fill: url(#bubble-glass); stroke: url(#bubble-edge); }
+.bubble-highlight { fill: none; stroke: #f2f6f85c; stroke-linecap: round; }
+.bubble-echo { fill: none; stroke: #c9d6dc; opacity: 0; }
+.bubble-lasso, .bubble-cursor { fill: none; stroke: #e1e8ec; stroke-width: 1.25; filter: drop-shadow(0 0 2px #080808); }
+.bubble-lasso { stroke-dasharray: 3 4; stroke-linecap: round; stroke-linejoin: round; }
+.bubble-lasso-selection { fill: #c9d6dc16; stroke: #e1e8ecaa; stroke-dasharray: none; }
+.bubble-cursor { fill: #111a; opacity: 0; }
 .hero[data-lasso-active] .bubble-cursor { opacity: 1; }
 .hero[data-lasso-active], .hero[data-lasso-active] * { cursor: none; }
-.bubble-text { fill: #fff; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; }
+.bubble-text { fill: #f4f6f7; font-size: 13px; font-weight: 650; letter-spacing: 0.12em; }
 @media (max-width: 47.99rem) {
     .hero-portrait-wide img { inset-block-start: 1.5rem; height: 50%; object-position: center top; mask-image: linear-gradient(180deg, transparent, #000 10%); }
     .hero-portrait-wide::after { background: linear-gradient(180deg, #080808ba, transparent 18%, transparent 32%, #080808 53%); }
-    .hero-traces { display: none; }
-    .hero-mobile-traces {
-        display: block;
-        position: absolute;
-        inset: auto -1px 100% auto;
-        width: clamp(6rem, 31vw, 7.75rem);
-        fill: none;
-        stroke: #b3c3ca80;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        pointer-events: none;
-    }
-    .hero-mobile-traces :is(path, circle) { vector-effect: non-scaling-stroke; }
+    .hero-studio-light { inset: auto -35% 15% auto; width: 145%; height: 54%; }
     .hero-copy { background: #101010d9; }
 }
 .hero-name { color: #dedede; font-size: 0.76rem; font-weight: 650; letter-spacing: 0.17em; line-height: 1.5; text-transform: uppercase; }
@@ -236,11 +228,6 @@ body, .project-entry, .about-panel, .resume-paper, .credential-group, .navigatio
 
 @media (prefers-reduced-motion: no-preference) {
     .hero-copy { animation: hero-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .hero-traces svg { animation: hero-traces-enter 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both; }
-
-    @keyframes hero-traces-enter {
-        from { opacity: 0; transform: translateX(-1.5rem); }
-    }
     .project-visual > img, .project-visual .project-art svg {
         transform: perspective(800px)
             translate3d(calc(var(--project-x, 0) * 5px), calc(var(--project-y, 0) * 4px), 0)

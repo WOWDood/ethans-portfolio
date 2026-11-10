@@ -1,5 +1,8 @@
+import { resolveBubbleCollision } from './portfolio-motion.js';
+
 const bubblePhrases = ['I PLAY', 'WITH', 'CODE'];
 const tapRadius = 39;
+const maxBubbles = 16;
 
 export function initializeHeroBubbles(hero, reducedMotion) {
     const layer = hero.querySelector('.hero-bubbles');
@@ -9,13 +12,15 @@ export function initializeHeroBubbles(hero, reducedMotion) {
     const outline = layer.querySelector('.bubble-lasso');
     const template = layer.querySelector('.bubble-template');
     const flights = new Set();
+    let frame = null;
+    let previousTime = 0;
     let gesture = null;
     let phraseIndex = 0;
 
     const isBackground = (event) => !event.target.closest('.hero-copy, a, button');
     const position = (event) => {
         const bounds = hero.getBoundingClientRect();
-        return { x: Math.round(event.clientX - bounds.left), y: Math.round(event.clientY - bounds.top) };
+        return { x: Math.round(event.clientX - bounds.left), y: Math.round(event.clientY - bounds.top), time: event.timeStamp };
     };
     const distance = (start, end) => Math.hypot(end.x - start.x, end.y - start.y);
 
@@ -33,7 +38,57 @@ export function initializeHeroBubbles(hero, reducedMotion) {
     }
 
     function lassoPath(points) {
-        return `M${points.map(({ x, y }) => `${x} ${y}`).join(' L')}`;
+        const [start, ...rest] = points;
+        let path = `M${start.x} ${start.y}`;
+
+        for (let index = 0; index < rest.length - 1; index++) {
+            const point = rest[index];
+            const next = rest[index + 1];
+            path += ` Q${point.x} ${point.y} ${(point.x + next.x) / 2} ${(point.y + next.y) / 2}`;
+        }
+
+        const end = rest.at(-1);
+        return end ? `${path} L${end.x} ${end.y}` : path;
+    }
+
+    function launchVelocity(points) {
+        const end = points.at(-1);
+        const start = points.findLast((point) => point.time <= end.time - 45) ?? points[0];
+        const elapsed = Math.max(0.02, (end.time - start.time) / 1000);
+        const travel = distance(start, end);
+        const momentum = travel ? Math.min(0.24 / elapsed, 100 / travel) : 0;
+
+        return { vx: (end.x - start.x) * momentum, vy: (end.y - start.y) * momentum - 24 };
+    }
+
+    function renderBubble(body) {
+        body.element.setAttribute('transform', `translate(${body.x} ${body.y}) scale(${body.contactRadius / body.radius})`);
+    }
+
+    function moveBubbles(now) {
+        frame = null;
+        const seconds = Math.min(0.032, Math.max(0, (now - previousTime) / 1000));
+        previousTime = now;
+        const drag = Math.exp(-seconds * 1.4);
+        const active = [...flights];
+
+        for (const body of active) {
+            const age = Math.max(0, (now - body.born) / 1000);
+            body.contactRadius = body.radius * (1 - 0.18 * Math.exp(-age * 12) * Math.cos(age * 24));
+            body.vx *= drag;
+            body.vy = (body.vy + 24) * drag - 24;
+            body.x += body.vx * seconds;
+            body.y += body.vy * seconds;
+        }
+
+        for (let first = 0; first < active.length; first++) {
+            for (let second = first + 1; second < active.length; second++) {
+                resolveBubbleCollision(active[first], active[second]);
+            }
+        }
+
+        active.forEach(renderBubble);
+        if (flights.size) frame = requestAnimationFrame(moveBubbles);
     }
 
     function releaseBubble(points, selection) {
@@ -49,41 +104,46 @@ export function initializeHeroBubbles(hero, reducedMotion) {
         const y = selection ? center.y : Math.max(radius + 35, Math.min(hero.clientHeight - radius, center.y));
         const bubble = template.cloneNode(true);
         bubble.classList.remove('bubble-template');
-        bubble.setAttribute('transform', `translate(${x} ${y})`);
-        bubble.querySelector('.bubble-ring').setAttribute('r', radius);
+        bubble.querySelector('.bubble-shell').setAttribute('transform', `scale(${radius / tapRadius})`);
         const label = bubble.querySelector('.bubble-text');
         label.textContent = bubblePhrases[phraseIndex];
-        label.style.fontSize = `${Math.min(20, radius / 3)}px`;
+        label.style.fontSize = `${Math.min(22, radius / 3.2)}px`;
         layer.insertBefore(bubble, cursor);
         phraseIndex = (phraseIndex + 1) % bubblePhrases.length;
 
         if (selection) layer.insertBefore(selection, bubble);
-        const close = selection?.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 360, fill: 'forwards' });
-        const flight = bubble.querySelector('.bubble-flight').animate([
-            { transform: 'translateY(0) scale(0.24)', opacity: 0.65, easing: 'ease-out' },
-            { transform: 'translateY(-3px) scale(1.17)', opacity: 1, offset: 0.10, easing: 'ease-in-out' },
-            { transform: 'translateY(-6px) scale(0.91)', opacity: 1, offset: 0.18, easing: 'ease-in-out' },
-            { transform: 'translateY(-9px) scale(1.045)', opacity: 1, offset: 0.24, easing: 'ease-out' },
-            { transform: 'translateY(-15px) scale(1)', opacity: 1, offset: 0.32 },
-            { transform: 'translateY(-45px) scale(1)', opacity: 1, offset: 0.76 },
-            { transform: 'translateY(-60px) scale(1)', opacity: 0 },
-        ], { duration: 1500 });
-        const popScale = radius / tapRadius;
-        const pop = bubble.querySelector('.bubble-rays').animate([
-            { transform: `scale(${popScale * 1.1})`, opacity: 0 },
-            { transform: `scale(${popScale * 1.4})`, opacity: 1, offset: 0.24 },
-            { transform: `scale(${popScale * 2.3})`, opacity: 0 },
-        ], { duration: 390, delay: 1070, easing: 'ease-out' });
+        const close = selection?.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, easing: 'ease-out', fill: 'forwards' });
+        const fade = bubble.querySelector('.bubble-flight').animate([
+            { opacity: 0.35, easing: 'ease-out' },
+            { opacity: 1, offset: 0.09 },
+            { opacity: 1, offset: 0.75, easing: 'ease-in' },
+            { opacity: 0 },
+        ], { duration: 2400 });
+        const echo = bubble.querySelector('.bubble-echo').animate([
+            { transform: 'scale(1)', opacity: 0.4 },
+            { transform: 'scale(1.15)', opacity: 0 },
+        ], { duration: 420, delay: 110, easing: 'ease-out' });
 
-        flights.add(flight);
+        const body = { x, y, radius, contactRadius: radius * 0.82, ...launchVelocity(points), element: bubble, born: performance.now(), fade };
+        renderBubble(body);
+        if (flights.size >= maxBubbles) flights.values().next().value.fade.cancel();
+        flights.add(body);
+        if (frame === null) {
+            previousTime = body.born;
+            frame = requestAnimationFrame(moveBubbles);
+        }
         const cleanUp = () => {
             close?.cancel();
             selection?.remove();
-            pop.cancel();
+            echo.cancel();
             bubble.remove();
-            flights.delete(flight);
+            flights.delete(body);
+            if (!flights.size && frame !== null) {
+                cancelAnimationFrame(frame);
+                frame = null;
+            }
         };
-        flight.finished.then(cleanUp, cleanUp);
+        fade.finished.then(cleanUp, cleanUp);
     }
 
     hero.addEventListener('pointerdown', (event) => {
@@ -127,6 +187,7 @@ export function initializeHeroBubbles(hero, reducedMotion) {
         if (length + distance(points.at(-1), point) < 18) return;
         points.push(point);
         const selection = outline.cloneNode();
+        selection.classList.add('bubble-lasso-selection');
         selection.setAttribute('d', `${lassoPath(points)} Z`);
         releaseBubble(points, selection);
     });
@@ -139,6 +200,6 @@ export function initializeHeroBubbles(hero, reducedMotion) {
     hero.addEventListener('lostpointercapture', cancelGesture);
     reducedMotion.addEventListener('change', () => {
         if (gesture) endGesture();
-        flights.forEach((flight) => flight.cancel());
+        flights.forEach((body) => body.fade.cancel());
     });
 }

@@ -87,15 +87,15 @@ if (hero) initializeHeroBubbles(hero, reducedMotion);
 const atmosphere = hero?.querySelector('.hero-atmosphere');
 if (atmosphere) {
     const light = atmosphere.querySelector('.hero-light');
-    const traces = atmosphere.querySelector('.hero-traces');
+    const studioLight = atmosphere.querySelector('.hero-studio-light');
     const quietBackground = window.matchMedia('(prefers-reduced-motion: reduce), (prefers-reduced-transparency: reduce), (prefers-contrast: more)');
     const lightMotion = spring([0, 0, 0], ([x, y, intensity]) => {
         light.style.transform = `translate3d(${x}px, ${y}px, 0)`;
         light.style.opacity = intensity;
     });
-    const traceMotion = spring([0], ([progress]) => {
-        traces.style.transform = `translate3d(0, ${-progress * 90}px, 0)`;
-        traces.style.opacity = 1 - progress * 0.85;
+    const studioMotion = spring([0], ([progress]) => {
+        studioLight.style.transform = `translate3d(0, ${-progress * 36}px, 0)`;
+        studioLight.style.opacity = 1 - progress * 0.8;
     });
     let lightX = 0;
     let lightY = 0;
@@ -112,24 +112,24 @@ if (atmosphere) {
     hero.addEventListener('pointerleave', fadeLight);
     hero.addEventListener('pointercancel', fadeLight);
 
-    function updateTraceDepth(immediate = false) {
+    function updateStudioLight(immediate = false) {
         if (quietBackground.matches) return;
         const { top, height } = hero.getBoundingClientRect();
         if (!height) return;
         const progress = Math.min(1, Math.max(0, -top / height));
         if (progress === scrollProgress && !immediate) return;
         scrollProgress = progress;
-        traceMotion.to([progress], immediate);
+        studioMotion.to([progress], immediate);
     }
 
-    window.addEventListener('scroll', () => updateTraceDepth(), { passive: true });
-    window.addEventListener('resize', () => updateTraceDepth(true));
+    window.addEventListener('scroll', () => updateStudioLight(), { passive: true });
+    window.addEventListener('resize', () => updateStudioLight(true));
     quietBackground.addEventListener('change', () => {
         fadeLight();
-        traceMotion.finish();
-        updateTraceDepth(true);
+        studioMotion.finish();
+        updateStudioLight(true);
     });
-    updateTraceDepth(true);
+    updateStudioLight(true);
 }
 
 const mobileMenu = document.querySelector('[data-mobile-menu]');

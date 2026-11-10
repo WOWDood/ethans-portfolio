@@ -32,48 +32,34 @@ new #[Layout('layouts::portfolio')] class extends Component
     <section aria-labelledby="intro-heading" class="hero">
         <div class="hero-atmosphere" aria-hidden="true">
             <div class="hero-light"></div>
-            <div class="hero-traces">
-                <svg viewBox="0 0 420 216" focusable="false">
-                    <defs>
-                        <linearGradient id="hero-circuit-ink">
-                            <stop stop-color="#b3c3ca" stop-opacity="0"/>
-                            <stop offset=".4" stop-color="#b3c3ca" stop-opacity=".55"/>
-                            <stop offset=".78" stop-color="#b3c3ca" stop-opacity=".38"/>
-                            <stop offset="1" stop-color="#b3c3ca" stop-opacity=".14"/>
-                        </linearGradient>
-                    </defs>
-                    <path class="hero-circuit-routes" d="M0 41h63l31 31h39l22 22h16 M0 116h171 M0 181h78l22-22h43l21-21h7 M203 68V47l-22-22h-30 M233 68V49l24-24h51 M267 94h28l26-26h57 M267 116h75l24 24h45 M267 138h25l30 30h31 M203 164v20l-24 24h-38 M233 164v16l25 25h47"/>
-                    <g class="hero-circuit-nodes">
-                        <circle cx="151" cy="25" r="4"/><circle cx="308" cy="25" r="4"/>
-                        <circle cx="378" cy="68" r="4"/><circle cx="411" cy="140" r="4"/>
-                        <circle cx="353" cy="168" r="4"/><circle cx="141" cy="208" r="4"/>
-                        <circle cx="305" cy="205" r="4"/>
-                    </g>
-                    <rect class="hero-circuit-package" x="171" y="68" width="96" height="96" rx="9"/>
-                    <rect class="hero-circuit-die" x="190" y="87" width="58" height="58" rx="4"/>
-                    <path class="hero-circuit-etch" d="M207 105h24m-24 11h24m-24 11h24 M164 90v8m0 14v8m0 14v8 M274 90v8m0 14v8m0 14v8"/>
-                    <circle class="hero-circuit-index" cx="181" cy="78" r="2"/>
-                </svg>
-            </div>
+            <div class="hero-studio-light"></div>
         </div>
         <svg class="hero-bubbles" aria-hidden="true" focusable="false">
+            <defs>
+                <linearGradient id="bubble-glass" x2=".25" y2="1">
+                    <stop stop-color="#343c40" stop-opacity=".88"/>
+                    <stop offset="1" stop-color="#0c0e10" stop-opacity=".93"/>
+                </linearGradient>
+                <linearGradient id="bubble-edge" x2=".25" y2="1">
+                    <stop stop-color="#f2f6f8" stop-opacity=".92"/>
+                    <stop offset="1" stop-color="#b7c4ca" stop-opacity=".36"/>
+                </linearGradient>
+            </defs>
             <path class="bubble-lasso"/>
             <g class="bubble-template">
                 <g class="bubble-flight">
-                    <circle class="bubble-ring" r="39"/>
-                    <text class="bubble-text" text-anchor="middle" y="5"></text>
-                    <path class="bubble-rays" d="M0-28v-10 M20-20l7-7 M28 0h10 M20 20l7 7 M0 28v10 M-20 20l-7 7 M-28 0h-10 M-20-20l-7-7"/>
+                    <g class="bubble-shell">
+                        <circle class="bubble-echo" r="39"/>
+                        <circle class="bubble-ring" r="39"/>
+                        <path class="bubble-highlight" d="M-25-23a34 34 0 0 1 24-11"/>
+                    </g>
+                    <text class="bubble-text" text-anchor="middle" dominant-baseline="central"></text>
                 </g>
             </g>
-            <path class="bubble-cursor" d="M-9 0h6 M3 0h6 M0-9v6 M0 3v6"/>
+            <circle class="bubble-cursor" r="4"/>
         </svg>
         <div class="hero-inner page-container">
             <div class="hero-copy">
-                <svg class="hero-mobile-traces" viewBox="0 0 124 34" aria-hidden="true" focusable="false">
-                    <path d="M123.5 33.5H97L82 18H57 M123.5 25.5H103L82 5H27"/>
-                    <circle cx="54" cy="18" r="3"/>
-                    <circle cx="24" cy="5" r="3"/>
-                </svg>
                 <p class="hero-name">{{ $profile['name'] }}</p>
                 <h1 id="intro-heading">
                     @foreach ($profile['hero_lines'] as $line)
