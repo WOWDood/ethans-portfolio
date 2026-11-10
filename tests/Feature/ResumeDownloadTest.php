@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
-test('serves only the generated public PDF or reports it missing', function (bool $built) {
+test('serves only the generated public PDF or reports it missing', function (bool $built, bool $preview) {
     $directory = storage_path('framework/testing/download-'.Str::uuid());
     File::ensureDirectoryExists($directory);
     config(['portfolio.output_directory' => $directory]);
@@ -13,15 +13,20 @@ test('serves only the generated public PDF or reports it missing', function (boo
     }
 
     try {
-        $response = $this->get(route('resume.download'));
+        $response = $this->get(route('resume.download', $preview ? ['preview' => '1'] : []));
 
         if ($built) {
-            $response->assertOk()->assertDownload('ethan-oneil-azlan-resume.pdf')
-                ->assertHeader('Content-Type', 'application/pdf')->assertHeaderMissing('Set-Cookie');
+            $response->assertOk()->assertHeader('Content-Type', 'application/pdf')->assertHeaderMissing('Set-Cookie');
+
+            if ($preview) {
+                $response->assertHeader('Content-Disposition', 'inline; filename=ethan-oneil-azlan-resume.pdf');
+            } else {
+                $response->assertDownload('ethan-oneil-azlan-resume.pdf');
+            }
         } else {
             $response->assertNotFound();
         }
     } finally {
         File::deleteDirectory($directory);
     }
-})->with([true, false]);
+})->with([true, false])->with([true, false]);

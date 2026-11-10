@@ -48,6 +48,8 @@ test('shows public resume sections and accurate credential labels', function () 
     $this->get(route('resume'))->assertOk()
         ->assertSee('27 Sep 2025')->assertSee('Expected Oct 2029')
         ->assertSee('Core 1 passed with training')->assertSee('Partial Completion')
+        ->assertSee('data-resume-preview="/ethan-oneil-azlan-resume.pdf?preview=1"', escape: false)
+        ->assertSee('Download PDF')->assertSee('Share résumé')
         ->assertSee('Projects & competitions', escape: false)->assertDontSee('proton.me');
 });
 

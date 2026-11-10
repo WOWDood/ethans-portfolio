@@ -83,7 +83,7 @@
                     {{ $profile['name'] }}
                 </a>
                 <p>{{ $profile['tagline'] }}</p>
-                <a href="{{ route('resume.download', absolute: false) }}" download>Download résumé <span aria-hidden="true">↓</span></a>
+                <a href="{{ route('resume', absolute: false) }}/">View résumé <span aria-hidden="true">↗</span></a>
             </div>
         </footer>
     </body>

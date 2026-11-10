@@ -381,6 +381,15 @@ body, .project-entry, .about-panel, .resume-paper, .credential-group, .navigatio
 .resume-toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 2rem; }
 .resume-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; }
 .resume-toolbar button { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+.resume-toolbar button:hover { background: var(--soft); }
+.resume-pdf-preview { display: block; width: 100%; height: clamp(30rem, 78svh, 58rem); border: 1px solid var(--line); background: var(--surface); }
+.resume-share-status, .resume-share-link { flex-basis: 100%; font-size: 0.85rem; }
+.resume-share-status { color: var(--muted); }
+.resume-share-status:empty { position: absolute; }
+.resume-share-link { width: 100%; min-height: 2.75rem; padding-inline: 0.8rem; background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+@media screen {
+    .resume-page[data-native-preview] .resume-text { display: none; }
+}
 .resume-paper { max-width: 64rem; padding: clamp(1.5rem, 5vw, 4rem); margin-inline: auto; background: var(--surface); border: 1px solid var(--line); }
 .resume-header h1 { margin-top: 0.6rem; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.05em; line-height: 1.15; font-weight: 600; }
 .resume-position { color: var(--accent); margin-top: 0.75rem; font-size: 1rem; }

@@ -10,6 +10,7 @@
         <p class="resume-position">{{ $content['profile']['headline'] }}</p>
         <p class="resume-intro">{{ $content['profile']['bio'] }}</p>
         <div class="resume-links">
+            <a href="https://ethanoa.my/">ethanoa.my</a>
             @foreach ($content['profile']['links'] as $link)
                 <a wire:key="resume-link-{{ $loop->index }}" href="{{ $link['url'] }}">{{ $link['label'] }}</a>
             @endforeach

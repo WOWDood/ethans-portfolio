@@ -263,3 +263,62 @@ document.querySelectorAll('[data-print]').forEach((button) => {
     button.removeAttribute('hidden');
     button.addEventListener('click', () => window.print());
 });
+
+const resumePreview = document.querySelector('[data-resume-preview]');
+if (resumePreview && navigator.pdfViewerEnabled) {
+    const resumePage = resumePreview.closest('.resume-page');
+    const viewButton = resumePage.querySelector('[data-resume-view]');
+    const wideScreen = window.matchMedia('(min-width: 48rem) and (pointer: fine)');
+    let prefersPdf = true;
+
+    function updateResumePreview() {
+        const showPdf = wideScreen.matches && prefersPdf;
+        if (showPdf && !resumePreview.hasAttribute('src')) resumePreview.src = resumePreview.dataset.resumePreview;
+        resumePreview.hidden = !showPdf;
+        resumePage.toggleAttribute('data-native-preview', showPdf);
+        viewButton.hidden = !wideScreen.matches;
+        viewButton.textContent = showPdf ? 'Read text version' : 'Show PDF preview';
+    }
+
+    viewButton.addEventListener('click', () => {
+        prefersPdf = !prefersPdf;
+        updateResumePreview();
+    });
+    wideScreen.addEventListener('change', updateResumePreview);
+    updateResumePreview();
+}
+
+const shareResume = document.querySelector('[data-share-resume]');
+if (shareResume) {
+    const status = document.querySelector('[data-resume-share-status]');
+    const shareLink = document.querySelector('[data-resume-share-link]');
+    const url = new URL(shareResume.dataset.shareResume, window.location.href).href;
+    const canShare = typeof navigator.share === 'function';
+    shareResume.hidden = false;
+    if (!canShare) shareResume.textContent = 'Copy résumé link';
+
+    shareResume.addEventListener('click', async () => {
+        status.textContent = '';
+        shareLink.hidden = true;
+
+        if (canShare) {
+            try {
+                await navigator.share({ title: document.title, url });
+                return;
+            } catch (error) {
+                if (error.name === 'AbortError') return;
+            }
+        }
+
+        try {
+            await navigator.clipboard.writeText(url);
+            status.textContent = 'Résumé link copied.';
+        } catch {
+            shareLink.value = url;
+            shareLink.hidden = false;
+            shareLink.focus();
+            shareLink.select();
+            status.textContent = 'Copy the résumé link below.';
+        }
+    });
+}
