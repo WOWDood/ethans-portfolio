@@ -69,6 +69,11 @@ new #[Layout('layouts::portfolio')] class extends Component
         </svg>
         <div class="hero-inner page-container">
             <div class="hero-copy">
+                <svg class="hero-mobile-traces" viewBox="0 0 124 34" aria-hidden="true" focusable="false">
+                    <path d="M123.5 33.5H97L82 18H57 M123.5 25.5H103L82 5H27"/>
+                    <circle cx="54" cy="18" r="3"/>
+                    <circle cx="24" cy="5" r="3"/>
+                </svg>
                 <p class="hero-name">{{ $profile['name'] }}</p>
                 <h1 id="intro-heading">
                     @foreach ($profile['hero_lines'] as $line)

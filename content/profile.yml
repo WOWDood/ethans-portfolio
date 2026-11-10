@@ -6,8 +6,8 @@ bio: >-
 hero_lines: [Hardware., Software., Same curiosity.]
 focus_lines: [Learning how things work., Then making them work.]
 availability:
-  primary: Seeking internships
-  secondary: Open to junior roles and selected freelance projects.
+  primary: Surviving the semester
+  secondary: Open to selected freelance projects.
 about:
   heading: From components to code.
   paragraphs:
@@ -15,7 +15,7 @@ about:
     - At ACOTech Hackathon 2025, our team placed third as the only first-year team. I contributed ideas, created the slides, and delivered most of our presentation.
 contact:
   heading: Have something in mind?
-  intro: For an internship, a junior opportunity, or a project, you can find me here.
+  intro: Reach out about a project or just say hello.
   method: formspree
   form_id: null # Configure the delivery email with the provider, not in this file.
 links:

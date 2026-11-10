@@ -111,6 +111,7 @@ body, .project-entry, .about-panel, .resume-paper, .credential-group, .navigatio
 .hero-circuit-die { fill: #b3c3ca0e; stroke: #b3c3ca38; }
 .hero-circuit-etch { fill: none; stroke: #b3c3ca4d; stroke-linecap: round; }
 .hero-circuit-index { fill: #b3c3ca9c; }
+.hero-mobile-traces { display: none; }
 .hero-bubbles { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .bubble-template { display: none; }
 .bubble-ring, .bubble-cursor, .bubble-rays, .bubble-lasso { fill: none; stroke: #d5fff5; stroke-width: 1.5; stroke-linecap: round; }
@@ -123,8 +124,19 @@ body, .project-entry, .about-panel, .resume-paper, .credential-group, .navigatio
 @media (max-width: 47.99rem) {
     .hero-portrait-wide img { inset-block-start: 1.5rem; height: 50%; object-position: center top; mask-image: linear-gradient(180deg, transparent, #000 10%); }
     .hero-portrait-wide::after { background: linear-gradient(180deg, #080808ba, transparent 18%, transparent 32%, #080808 53%); }
-    .hero-traces { inset: auto -1.25rem 49% auto; width: clamp(12rem, 56vw, 19rem); }
-    .hero-traces svg { opacity: 0.67; }
+    .hero-traces { display: none; }
+    .hero-mobile-traces {
+        display: block;
+        position: absolute;
+        inset: auto -1px 100% auto;
+        width: clamp(6rem, 31vw, 7.75rem);
+        fill: none;
+        stroke: #b3c3ca80;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        pointer-events: none;
+    }
+    .hero-mobile-traces :is(path, circle) { vector-effect: non-scaling-stroke; }
     .hero-copy { background: #101010d9; }
 }
 .hero-name { color: #dedede; font-size: 0.76rem; font-weight: 650; letter-spacing: 0.17em; line-height: 1.5; text-transform: uppercase; }
