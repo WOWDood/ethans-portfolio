@@ -193,7 +193,9 @@ new #[Layout('layouts::portfolio')] class extends Component
                     <article wire:key="leadership-{{ $entry['id'] }}">
                         <x-portfolio.badge :badge="$entry['badge'] ?? null" class="role-badge" sizes="64px" />
                         <div>
-                            <p class="entry-date">{{ $dates->range($entry['start'], $entry['end'], $entry['ongoing']) }}</p>
+                            @if ($period = $dates->range($entry['start'], $entry['end'], $entry['ongoing']))
+                                <p class="entry-date">{{ $period }}</p>
+                            @endif
                             <h3>{{ $entry['role'] }}</h3>
                             <p class="entry-organisation">{{ $entry['organisation'] }}</p>
                             @if ($entry['engagement'])<p class="entry-engagement">{{ $entry['engagement'] }}</p>@endif

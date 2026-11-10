@@ -55,7 +55,7 @@
             <div class="resume-role" wire:key="resume-role-{{ $entry['id'] }}">
                 <x-portfolio.badge :badge="$entry['badge'] ?? null" class="role-badge" sizes="40px" />
                 <div>
-                    <p><strong>{{ $entry['role'] }}</strong> · {{ $entry['organisation'] }} · {{ $dates->range($entry['start'], $entry['end'], $entry['ongoing']) }}@if ($entry['engagement']) · {{ $entry['engagement'] }}@endif</p>
+                    <p><strong>{{ $entry['role'] }}</strong> · {{ $entry['organisation'] }}@if ($period = $dates->range($entry['start'], $entry['end'], $entry['ongoing'])) · {{ $period }}@endif @if ($entry['engagement']) · {{ $entry['engagement'] }}@endif</p>
                     @if ($entry['activities'] ?? [])
                         <p>{{ implode(' · ', $entry['activities']) }}</p>
                     @endif
