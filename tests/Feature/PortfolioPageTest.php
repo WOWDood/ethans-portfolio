@@ -29,10 +29,11 @@ test('features the annual dinner above the list of supported events', function (
     $this->withoutVite();
 
     $this->get(route('home'))->assertOk()->assertSeeInOrder([
-        'Co-emceed the Harrison’s Malaysia annual dinner around June 2026.',
+        'Co-emceed the Harrison’s Malaysia annual dinner in June 2026.',
         'Events supported',
         "McDonald's Malaysia",
         'KFC Malaysia',
+        'U Mobile Sdn. Bhd.',
     ]);
 });
 

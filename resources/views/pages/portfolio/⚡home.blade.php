@@ -33,13 +33,26 @@ new #[Layout('layouts::portfolio')] class extends Component
         <div class="hero-atmosphere" aria-hidden="true">
             <div class="hero-light"></div>
             <div class="hero-traces">
-                <svg viewBox="0 0 360 256" focusable="false">
-                    <path d="M0 72h62l46 46h57l32 32h75 M0 118h43l42 42h55l32 32h148 M0 166h27l33 33h53l23 23h78 M0 229h71l27 27 M108 118V80l32-32h64 M197 150v-38l30-30h49"/>
-                    <circle cx="204" cy="48" r="3"/>
-                    <circle cx="276" cy="82" r="3"/>
-                    <circle cx="272" cy="150" r="3"/>
-                    <circle cx="320" cy="192" r="3"/>
-                    <circle cx="214" cy="222" r="3"/>
+                <svg viewBox="0 0 420 216" focusable="false">
+                    <defs>
+                        <linearGradient id="hero-circuit-ink">
+                            <stop stop-color="#b3c3ca" stop-opacity="0"/>
+                            <stop offset=".4" stop-color="#b3c3ca" stop-opacity=".55"/>
+                            <stop offset=".78" stop-color="#b3c3ca" stop-opacity=".38"/>
+                            <stop offset="1" stop-color="#b3c3ca" stop-opacity=".14"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="hero-circuit-routes" d="M0 41h63l31 31h39l22 22h16 M0 116h171 M0 181h78l22-22h43l21-21h7 M203 68V47l-22-22h-30 M233 68V49l24-24h51 M267 94h28l26-26h57 M267 116h75l24 24h45 M267 138h25l30 30h31 M203 164v20l-24 24h-38 M233 164v16l25 25h47"/>
+                    <g class="hero-circuit-nodes">
+                        <circle cx="151" cy="25" r="4"/><circle cx="308" cy="25" r="4"/>
+                        <circle cx="378" cy="68" r="4"/><circle cx="411" cy="140" r="4"/>
+                        <circle cx="353" cy="168" r="4"/><circle cx="141" cy="208" r="4"/>
+                        <circle cx="305" cy="205" r="4"/>
+                    </g>
+                    <rect class="hero-circuit-package" x="171" y="68" width="96" height="96" rx="9"/>
+                    <rect class="hero-circuit-die" x="190" y="87" width="58" height="58" rx="4"/>
+                    <path class="hero-circuit-etch" d="M207 105h24m-24 11h24m-24 11h24 M164 90v8m0 14v8m0 14v8 M274 90v8m0 14v8m0 14v8"/>
+                    <circle class="hero-circuit-index" cx="181" cy="78" r="2"/>
                 </svg>
             </div>
         </div>
